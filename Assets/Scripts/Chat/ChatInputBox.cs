@@ -31,6 +31,9 @@ namespace Assets.Scripts.Chat
                 clone.transform.SetParent(TextPanel);
                 clone.transform.SetAsFirstSibling();
                 clone.GetComponent<ChatMessage>().ShowMessage(GameManager.player, TextBox.text);
+                TextBox.text = "";
+                TextBox.Select();
+                TextBox.ActivateInputField();
             }
         }
 
@@ -50,9 +53,6 @@ namespace Assets.Scripts.Chat
             if (TextBox.isFocused && TextBox.text != "" && Input.GetKey(KeyCode.Return))
             {
                 SendMessage();
-                TextBox.text = "";
-                TextBox.Select();
-                TextBox.ActivateInputField();
             }
         }
 
