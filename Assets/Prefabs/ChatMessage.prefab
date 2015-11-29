@@ -10,6 +10,8 @@ GameObject:
   - 224: {fileID: 22421652}
   - 222: {fileID: 22263802}
   - 114: {fileID: 11402678}
+  - 114: {fileID: 11431360}
+  - 114: {fileID: 11485484}
   m_Layer: 5
   m_Name: ChatMessage
   m_TagString: Untagged
@@ -49,6 +51,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Chat...4
+--- !u!114 &11431360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ea8d20b8d95004cbc3b17f77345ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 11402678}
+--- !u!114 &11485484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 16
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!222 &22263802
 CanvasRenderer:
   m_ObjectHideFlags: 1

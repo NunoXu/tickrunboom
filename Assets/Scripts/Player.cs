@@ -7,6 +7,6 @@ namespace Assets.Scripts
 {
     public class Player
     {
-        
+        public string NickName { get; set; }
     }
 }

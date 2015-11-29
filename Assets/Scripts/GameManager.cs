@@ -10,12 +10,14 @@ namespace Assets.Scripts
 
 
         public GameObject votesPanel;
+        public Player player;
         
         private List<GameObject> uiComponents;
-        private 
 
 
         void Start() {
+            player = new Player { NickName = "Anon" };
+
             this.uiComponents = GameObject.FindGameObjectsWithTag("VotingFrame").ToList();
         }
         
