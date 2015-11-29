@@ -13,16 +13,12 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       timer = GetComponent<Text>();
-     
-            if (timeLeft <= 0)           
+       timer = GetComponent<Text>();  
+            if (timeLeft < 1)           
                 timeLeft = 0;
             else
                 timeLeft -= Time.deltaTime;
         timer.text = timeLeft.ToString();
-
-
     }
-
 }
 
