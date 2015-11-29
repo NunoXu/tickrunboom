@@ -28,7 +28,7 @@ namespace Assets.Scripts.Chat
             if (TextBox.text.Length > 0)
             {
                 GameObject clone = Instantiate(MessagePrefab);
-                clone.transform.SetParent(TextPanel);
+                clone.transform.SetParent(TextPanel, false);
                 clone.transform.SetAsFirstSibling();
                 clone.GetComponent<ChatMessage>().ShowMessage(GameManager.player, TextBox.text);
                 TextBox.text = "";
@@ -40,7 +40,7 @@ namespace Assets.Scripts.Chat
         public void SendRandomMessage()
         {
             GameObject clone = Instantiate(MessagePrefab);
-            clone.transform.SetParent(TextPanel);
+            clone.transform.SetParent(TextPanel, false);
             clone.transform.SetAsFirstSibling();
             clone.GetComponent<ChatMessage>().ShowMessage(randomMessages[nextMessage]);
             nextMessage++;
