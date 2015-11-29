@@ -50,7 +50,7 @@ namespace Assets.Scripts.Chat
 
         void OnGUI()
         {
-            if (TextBox.isFocused && TextBox.text != "" && Input.GetKey(KeyCode.Return))
+            if (TextBox.isFocused && TextBox.text != "" && (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter)))
             {
                 SendMessage();
             }
