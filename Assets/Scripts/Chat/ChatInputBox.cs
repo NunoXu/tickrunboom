@@ -10,6 +10,8 @@ namespace Assets.Scripts.Chat
         private float previousTime = 0.0f;
         private int nextMessage = 0;
 
+        bool allowMessages = true;
+
         public InputField TextBox;
         public Transform TextPanel;
         public GameObject MessagePrefab;
@@ -39,13 +41,24 @@ namespace Assets.Scripts.Chat
 
         public void SendRandomMessage()
         {
+            if (allowMessages)
+            {
+                GameObject clone = Instantiate(MessagePrefab);
+                clone.transform.SetParent(TextPanel, false);
+                clone.transform.SetAsFirstSibling();
+                clone.GetComponent<ChatMessage>().ShowMessage(randomMessages[nextMessage]);
+                nextMessage++;
+                if (nextMessage >= randomMessages.GetLength(0))
+                    nextMessage = 0;
+            }
+        }
+
+        public void SendSpecificMessage(string message)
+        {
             GameObject clone = Instantiate(MessagePrefab);
             clone.transform.SetParent(TextPanel, false);
             clone.transform.SetAsFirstSibling();
-            clone.GetComponent<ChatMessage>().ShowMessage(randomMessages[nextMessage]);
-            nextMessage++;
-            if (nextMessage >= randomMessages.GetLength(0))
-                nextMessage = 0;
+            clone.GetComponent<ChatMessage>().ShowMessage(message);
         }
 
         void OnGUI()

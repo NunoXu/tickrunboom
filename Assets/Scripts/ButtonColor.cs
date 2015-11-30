@@ -18,7 +18,6 @@ public class ButtonColor : MonoBehaviour {
         timeLeft = t.GetComponent<Timer>().getTimeLeft();
 
         Button b = GetComponent<Button>();
-        Debug.Log(timeLeft.ToString(), b);
 
         if (timeLeft < 0)
         {
