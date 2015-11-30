@@ -17,6 +17,14 @@ namespace Assets.Scripts.Chat
             Text.text = text;
         }
 
+        public void ShowEndMessage(string text, Color c)
+        {
+            Text.horizontalOverflow = HorizontalWrapMode.Wrap;
+            Text.color = c;
+            Text.lineSpacing = 1.5f;
+            Text.text = text;
+        }
+
         public void ShowMessage(Player player, string text)
         {
             Text.horizontalOverflow = HorizontalWrapMode.Wrap;

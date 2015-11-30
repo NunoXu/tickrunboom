@@ -19,10 +19,10 @@ namespace Assets.Scripts.Chat
 
         private string[] randomMessages =
         {
-            "Lockhart: Hello.",
-            "John: Greetings",
-            "Mario: Vote for me.",
-            "Princess: Vote for Mario"
+            "[Animal Tamer]: Hello.",
+            "[Child]: Greetings.",
+            "[Doctor]: Vote for me.",
+            "[Fire Fighter]: Vote for Doctor."
         };
 
         public void SendMessage()
@@ -53,12 +53,12 @@ namespace Assets.Scripts.Chat
             }
         }
 
-        public void SendSpecificMessage(string message)
+        public void SendSpecificMessage(string message, Color c)
         {
             GameObject clone = Instantiate(MessagePrefab);
             clone.transform.SetParent(TextPanel, false);
             clone.transform.SetAsFirstSibling();
-            clone.GetComponent<ChatMessage>().ShowMessage(message);
+            clone.GetComponent<ChatMessage>().ShowEndMessage(message, c);
         }
 
         void OnGUI()
