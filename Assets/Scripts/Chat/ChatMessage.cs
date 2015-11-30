@@ -13,11 +13,13 @@ namespace Assets.Scripts.Chat
 
         public void ShowMessage(string text)
         {
+            Text.horizontalOverflow = HorizontalWrapMode.Wrap;
             Text.text = text;
         }
 
         public void ShowMessage(Player player, string text)
         {
+            Text.horizontalOverflow = HorizontalWrapMode.Wrap;
             Text.text = player.NickName + ": " + text;
         }
 
