@@ -22,7 +22,7 @@ public class ButtonColor : MonoBehaviour {
         if (timeLeft < 0)
         {
             
-            if (b.image.color == Color.green)
+            if (b.image.color == Color.yellow)
             {
                 b.image.color = Color.red;
             }

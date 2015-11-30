@@ -17,7 +17,7 @@ public class VoteButtonColor : MonoBehaviour {
             Button b = GetComponent<Button>();
             if (color == 0 && HasVoted == 0)
             {
-                b.image.color = Color.green;
+                b.image.color = Color.yellow;
                 color = 1;
                 HasVoted = 1;
             }

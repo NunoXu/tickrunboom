@@ -57,14 +57,41 @@ public class CharacterMovement : MonoBehaviour {
             int rightVote = int.Parse(instruction.text);
             if (rightVote == 1)
             {
-                transform.Translate(6, 0, 0);
+
+                GameObject b = GameObject.Find("Button 3");
+                Button button = b.GetComponent<Button>();
+                button.image.color = Color.green;
+                transform.Translate(6, 0.5f, 0);
                 transform.Rotate(0.0f, 180.0f, 0.0f);
             }
             else
             {
-               transform.Translate(4, -3, 0);
+
+                GameObject b = GameObject.Find("Player Button");
+                Button button = b.GetComponent<Button>();
+
+                if (button.image.color == Color.red)
+                {
+                    button.image.color = new Color(0.4f, 0.4f, 0.4f, 1.0f);
+                }
+
+                for (int i = 1; i < 6; i++)
+                {
+                    if (i == 3)
+                        continue;
+                    b = GameObject.Find("Button " + i);
+                    button = b.GetComponent<Button>();
+
+                    if (button.image.color == Color.red)
+                    {
+                        button.image.color = new Color(0.4f, 0.4f, 0.4f, 1.0f);
+                    }
+
+                }
+
+                transform.Translate(4, -2.5f, 0);
                 transform.Rotate(0.0f, 0.0f, 90.0f);
-                
+
             }
             hasMoved = 1;
         }
