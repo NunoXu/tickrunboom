@@ -7,6 +7,12 @@ public class Timer : MonoBehaviour {
     Text timer;
     float timeLeft = 60.0f;
     // Use this for initialization
+
+    public float getTimeLeft()
+    {
+        return timeLeft;
+    }
+
     void Start () {
 	
 	}
