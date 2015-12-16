@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class Puzzle
+    public class whiteBox
     {
         public Sprite image { get; set; }
         public Text puzzleText { get; set; }      
