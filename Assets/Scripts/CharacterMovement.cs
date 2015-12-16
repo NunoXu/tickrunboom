@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (hasMoved == 0)
+        /*if (hasMoved == 0)
         {
             GameObject t = GameObject.Find("Time");
             timeLeft = t.GetComponent<Timer>().getTimeLeft();
@@ -33,7 +33,7 @@ public class CharacterMovement : MonoBehaviour {
             }
 
             
-        }
+        }*/
     }
 
     void fixVote()

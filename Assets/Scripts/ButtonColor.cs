@@ -6,6 +6,10 @@ using System.Collections;
 public class ButtonColor : MonoBehaviour {
 
     float timeLeft;
+
+    
+    public GameObject votesPanel;
+
     // Use this for initialization
     void Start () {
 	    

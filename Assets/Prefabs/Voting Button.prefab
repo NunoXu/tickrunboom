@@ -11,9 +11,8 @@ GameObject:
   - 222: {fileID: 22279640}
   - 114: {fileID: 11474960}
   - 114: {fileID: 11488694}
-  - 114: {fileID: 11408770}
   m_Layer: 5
-  m_Name: Player Button
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +28,11 @@ GameObject:
   - 224: {fileID: 22456468}
   - 222: {fileID: 22263782}
   - 114: {fileID: 11424202}
+  - 114: {fileID: 11408126}
+  - 114: {fileID: 11459204}
   m_Layer: 5
   m_Name: Voting Button
-  m_TagString: Untagged
+  m_TagString: VotingFrame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,25 +47,31 @@ GameObject:
   - 224: {fileID: 22463334}
   - 222: {fileID: 22275654}
   - 114: {fileID: 11422496}
-  - 114: {fileID: 11477654}
   m_Layer: 5
-  m_Name: Player Text
+  m_Name: Text 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11408770
+--- !u!114 &11408126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127530}
+  m_GameObject: {fileID: 153654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5218819ec338bc34c9b1763b5cd7955e, type: 3}
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!114 &11422496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +131,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11459204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9e1ecae0a127d4ab2fab458f5f940d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoteText: {fileID: 11422496}
+  ButtonImage: {fileID: 11474960}
+  HasVoted: 0
 --- !u!114 &11474960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +164,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4461055038377f8488f8f922ac330698, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7df3c30dd376df4f84859320314c78a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -151,17 +172,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11477654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3142ad99d9831c4395af272391b2309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11488694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +211,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11477654}
+      - m_Target: {fileID: 0}
         m_MethodName: UpVote
         m_Mode: 1
         m_Arguments:
@@ -212,7 +222,7 @@ MonoBehaviour:
           m_StringArgument: hi
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11408770}
+      - m_Target: {fileID: 0}
         m_MethodName: ButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -257,10 +267,10 @@ RectTransform:
   - {fileID: 22499546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 0, y: .5}
-  m_AnchoredPosition: {x: 53.7500038, y: 0}
-  m_SizeDelta: {x: 55.4000015, y: 73.8000031}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22463334
 RectTransform:

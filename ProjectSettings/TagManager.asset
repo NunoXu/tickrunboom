@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - VotingFrame
+  - ChatTextBox
+  - ChatTextPanel
   layers:
   - Default
   - TransparentFX

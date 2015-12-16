@@ -3,22 +3,39 @@ using System.Linq;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Assets.Scripts.UI;
+using Assets.Scripts.Traits;
+using UnityEngine.Networking;
 
 namespace Assets.Scripts
 {
     public class GameManager : MonoBehaviour {
 
 
-        public GameObject votesPanel;
-        public Player player;
+        public Player LocalPlayer;
+        public GameObject VotesPanel;
+        public TraitIcons TraitIcons;
+        public NetworkManager networkManager;
+
+        private List<Trait> PlayerTraits = new List<Trait>();
+        private IEnumerable<VoteFrame> voteFrames;
         
-        private List<GameObject> uiComponents;
 
 
         void Start() {
-            player = new Player { NickName = "Anon" };
+            
+            voteFrames = VotesPanel.GetComponentsInChildren<VoteFrame>();
 
-            this.uiComponents = GameObject.FindGameObjectsWithTag("VotingFrame").ToList();
+            //Initiallize PlayerTraits
+            PlayerTraits.Add(new AnimalHandler(TraitIcons.AnimalHandlerIcon));
+            PlayerTraits.Add(new ComputerGuy(TraitIcons.ComputerGuyIcon));
+            PlayerTraits.Add(new Fireman(TraitIcons.FiremanIcon));
+            PlayerTraits.Add(new Kid(TraitIcons.KidIcon));
+            PlayerTraits.Add(new Mechanic(TraitIcons.MechanicIcon));
+            PlayerTraits.Add(new Medic(TraitIcons.MedicIcon));
+            PlayerTraits.Add(new Strong(TraitIcons.StrongIcon));
+
+            
         }
         
 
