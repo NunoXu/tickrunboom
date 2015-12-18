@@ -7,6 +7,9 @@ TagManager:
   - VotingFrame
   - ChatTextBox
   - ChatTextPanel
+  - GameManager
+  - PlayerVotingFrame
+  - ServerGameManager
   layers:
   - Default
   - TransparentFX

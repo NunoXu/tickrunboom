@@ -8,7 +8,10 @@ namespace Assets.Scripts.Traits
 {
     class Medic : Trait
     {
-        public Medic(Sprite traitIcon) : base(traitIcon) { }
+        public Medic() : base()
+        {
+            Name = "Medic";
+        }
 
         public override bool Solve()
         {

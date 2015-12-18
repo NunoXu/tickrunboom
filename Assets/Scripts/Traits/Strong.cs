@@ -8,7 +8,10 @@ namespace Assets.Scripts.Traits
 {
     class Strong : Trait
     {
-        public Strong(Sprite traitIcon) : base(traitIcon) { }
+        public Strong() : base()
+        {
+            Name = "Strong";
+        }
 
         public override bool Solve()
         {

@@ -9,11 +9,14 @@ namespace Assets.Scripts.UI
 {
     public class VoteFrame : MonoBehaviour
     {
+        public Timer Timer;
         public Text VoteText;
         public Image ButtonImage;
         public float HasVoted;
-        public List<Sprite> TraitIcons;
 
+
+        private bool Voted = false;
+        private Player localPlayer;
         private Player player;
 
         public void SetVote(int voteNumber)
@@ -21,8 +24,9 @@ namespace Assets.Scripts.UI
             VoteText.text = voteNumber.ToString();
         }
 
-        public void RegisterPlayer(Player player)
+        public void RegisterPlayer(Player player, Player localPlayer)
         {
+            this.localPlayer = localPlayer;
             this.player = player;
             ButtonImage.sprite = player.GetTraitImage();
             VoteText.text = player.Votes.ToString();
@@ -30,7 +34,23 @@ namespace Assets.Scripts.UI
 
         public void UpVote()
         {
-            
+            if (!Voted)
+            {
+                localPlayer.CmdUpVote(player.id);
+                Voted = true;
+                ButtonImage.color = Color.red;
+            } else
+            {
+                localPlayer.CmdDownVote(player.id);
+                Voted = false;
+                ButtonImage.color = Color.white;
+            }
+        }
+
+        void OnGUI()
+        {
+            if (player != null)
+                VoteText.text = player.Votes.ToString();
         }
     }
 }

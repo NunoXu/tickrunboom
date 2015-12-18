@@ -8,7 +8,9 @@ namespace Assets.Scripts.Traits
 {
     class Kid : Trait
     {
-        public Kid(Sprite traitIcon) : base(traitIcon) { }
+        public Kid() : base() {
+            Name = "Kid";
+        }
 
         public override bool Solve()
         {

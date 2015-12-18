@@ -6,15 +6,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Traits
 {
-    public abstract class Trait
+    public abstract class Trait : MonoBehaviour
     {
-        protected string Name;
-        public Sprite TraitIcon { get; protected set; }
-
-        public Trait (Sprite traitIcon)
-        {
-            this.TraitIcon = traitIcon;
-        }
+        public string Name { get; set; }
+        public Sprite TraitIcon;
 
         public abstract bool Solve();
     }

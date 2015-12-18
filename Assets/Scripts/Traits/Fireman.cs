@@ -8,7 +8,9 @@ namespace Assets.Scripts.Traits
 {
     class Fireman : Trait
     {
-        public Fireman(Sprite traitIcon) : base(traitIcon) { }
+        public Fireman() : base() {
+            Name = "Fireman";
+        }
 
         public override bool Solve()
         {

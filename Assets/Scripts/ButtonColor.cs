@@ -19,7 +19,7 @@ public class ButtonColor : MonoBehaviour {
 	void Update () {
 
         GameObject t = GameObject.Find("Time");
-        timeLeft = t.GetComponent<Timer>().getTimeLeft();
+       // timeLeft = t.GetComponent<Timer>().getTimeLeft();
 
         Button b = GetComponent<Button>();
 

@@ -9,7 +9,9 @@ namespace Assets.Scripts.Traits
     public class AnimalHandler : Trait
     {
 
-        public AnimalHandler(Sprite traitIcon) : base(traitIcon) { }
+        public AnimalHandler() : base() {
+            Name = "Animal Handler";
+        }
 
         public override bool Solve()
         {

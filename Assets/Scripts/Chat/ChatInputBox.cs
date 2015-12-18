@@ -6,7 +6,7 @@ using UnityEngine.Networking.NetworkSystem;
 
 namespace Assets.Scripts.Chat
 {
-    public class ChatInputBox : NetworkBehaviour {
+    public class ChatInputBox : MonoBehaviour {
 
         const short ChatMessageTransmission = 1002;
 
@@ -16,23 +16,13 @@ namespace Assets.Scripts.Chat
         public GameManager GameManager;
 
         public Player player;
+   
 
-
-        private string[] randomMessages =
-        {
-            "[Animal Tamer]: Hello.",
-            "[Child]: Greetings.",
-            "[Doctor]: Vote for me.",
-            "[Fire Fighter]: Vote for Doctor."
-        };
-        
-
-        
         public void SendMessage()
         {
             if (TextBox.text.Length > 0)
             {
-                player.SendMessage(TextBox.text);
+                player.SendChatMessage(TextBox.text);
 
                 TextBox.text = "";
                 TextBox.Select();
@@ -43,9 +33,13 @@ namespace Assets.Scripts.Chat
         
         public void SendSpecificMessage(string message, Color c)
         {
-            //GameObject clone = SpawnMessage();
-            //clone.GetComponent<ChatMessage>().ShowEndMessage(message, c);
+            GameObject clone = CreateMessage();
+            clone.GetComponent<ChatMessage>().ShowEndMessage(message, c);
+            NetworkServer.Spawn(clone);
+            player.RpcSyncSpecific(clone, message, TextPanel.gameObject, c);
+            
         }
+
 
 
         private GameObject CreateMessage()
