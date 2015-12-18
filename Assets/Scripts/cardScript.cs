@@ -17,6 +17,9 @@ public class cardScript : MonoBehaviour
     Vector3 card7;
     Vector3 card8;
     Vector3 card9;
+    Vector3 card10;
+    Vector3 card11;
+    Vector3 card12;
 
     public Sprite[] cardSprites;
     public Button myBtn;
@@ -38,7 +41,8 @@ public class cardScript : MonoBehaviour
         if (this.gameObject.transform.position == card2 ||
              this.gameObject.transform.position == card4 ||
              this.gameObject.transform.position == card6 ||
-             this.gameObject.transform.position == card8){
+             this.gameObject.transform.position == card8)
+        {
              flag = 0;
              myBtn.image.sprite = cardSprites[0];
         }
@@ -53,7 +57,18 @@ public class cardScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (GameObject.Find("card_1").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_2").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_3").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_4").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_5").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_6").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_7").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_8").GetComponent<cardScriptHard>().flag == 1 ||
+             GameObject.Find("card_9").GetComponent<cardScriptHard>().flag == 1)
+        {
+            //win con here
+        }
     }
 
     public void flip()
@@ -342,7 +357,7 @@ public class cardScript : MonoBehaviour
                 temp.image.sprite = cardSprites[0];
                 GameObject.Find("card_6").GetComponent<cardScript>().flag = 0;
             }
-        }
+        }     
     }
 
   

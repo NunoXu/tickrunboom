@@ -3,7 +3,9 @@ using System.Collections;
 
 public class medicWinCon : MonoBehaviour {
 
-    public TextAsset text;
+    
+    public object textbox;
+
     // Use this for initialization
     void Start () {
 	
@@ -21,7 +23,7 @@ public class medicWinCon : MonoBehaviour {
             GameObject.Find("card_8").GetComponent<cardScript>().flag == 0 &&
             GameObject.Find("card_9").GetComponent<cardScript>().flag == 0)
         {
-           //WIN CON AQUI
+            textbox = "win";
         }
     }
 }
