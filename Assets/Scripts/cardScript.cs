@@ -6,7 +6,7 @@ using System.Collections;
 
 public class cardScript : MonoBehaviour
 {
-    int flag = 0;
+    public int flag = 0;
 
     Vector3 card1;
     Vector3 card2;

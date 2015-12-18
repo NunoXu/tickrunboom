@@ -96,6 +96,90 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22464876, guid: d5b34f028e8033b4f8f8c31506b45e12,
     type: 2}
   m_PrefabInternal: {fileID: 1861374636}
+--- !u!1 &302981507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 302981508}
+  - 222: {fileID: 302981511}
+  - 114: {fileID: 302981510}
+  - 114: {fileID: 302981509}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &302981508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302981507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 865344623}
+  m_RootOrder: 9
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -275.200012, y: 45}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &302981509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302981507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a84232bcfd690d4c8c889e78e4d5311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &302981510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302981507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: QQ
+--- !u!222 &302981511
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302981507}
 --- !u!1001 &304663725
 Prefab:
   m_ObjectHideFlags: 0
@@ -481,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043c6b405951b8449bec202159b49e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   cardSprites: []
   myBtn: {fileID: 0}
 --- !u!1001 &761179080
@@ -640,6 +725,7 @@ RectTransform:
   - {fileID: 1043477726}
   - {fileID: 2058897551}
   - {fileID: 333146603}
+  - {fileID: 302981508}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -1087,6 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043c6b405951b8449bec202159b49e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
   cardSprites: []
   myBtn: {fileID: 0}
 --- !u!1001 &1861374636
