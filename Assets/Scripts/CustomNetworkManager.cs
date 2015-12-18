@@ -83,10 +83,7 @@ namespace Assets.Scripts
                 ClientScene.AddPlayer(conn, 0);
             }
         }
-
-        public void Host()
-        {
-            NetworkManager.singleton.StartHost();
-        }
+        
+       
     }
 }

@@ -47,7 +47,14 @@ namespace Assets.Scripts
         [SyncVar]
         public int Votes = 0;
 
-        
+        [SyncVar]
+        public bool Dead = false;
+
+
+        [SyncVar]
+        public bool Voted = false;
+
+
         public Trait trait;
 
         
@@ -116,8 +123,11 @@ namespace Assets.Scripts
             CmdSendMessage(msg, chatSpawn);
 
         }
-        
-        
 
+        public void Reset()
+        {
+            Votes = 0;
+            Voted = false;
+        }
     }
 }

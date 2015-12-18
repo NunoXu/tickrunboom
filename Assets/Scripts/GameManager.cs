@@ -155,6 +155,7 @@ namespace Assets.Scripts
         {
             CurrentLevelIndex = levelIndex;
             timeLeft = TimePerLevel;
+            UI.RpcResetVotingFrames();
         }
 
         public Player GetChosenPlayer()
@@ -173,5 +174,6 @@ namespace Assets.Scripts
 
             return chosenPlayer;
         }
+        
     }
 }

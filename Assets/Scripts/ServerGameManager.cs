@@ -75,6 +75,10 @@ namespace Assets.Scripts
                 
                 var level = GetNextLevel();
                 GameManager.LoadNextLevel(TimePerLevel, level);
+                foreach (Player p in Players)
+                {
+                    p.Reset();
+                }
             }
         }
 

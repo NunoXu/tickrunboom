@@ -34,23 +34,42 @@ namespace Assets.Scripts.UI
 
         public void UpVote()
         {
+            if (player.Dead || localPlayer.Dead)
+                return;
+
             if (!Voted)
             {
+                if (localPlayer.Voted)
+                    return;
+
                 localPlayer.CmdUpVote(player.id);
                 Voted = true;
-                ButtonImage.color = Color.red;
+                localPlayer.Voted = true;
             } else
             {
                 localPlayer.CmdDownVote(player.id);
                 Voted = false;
-                ButtonImage.color = Color.white;
+                localPlayer.Voted = false;
             }
         }
 
         void OnGUI()
         {
             if (player != null)
+            {
                 VoteText.text = player.Votes.ToString();
+                if (player.Dead)
+                    ButtonImage.color = Color.grey;
+                else if (Voted)
+                    ButtonImage.color = Color.red;
+                else
+                    ButtonImage.color = Color.white;
+            }
+        }
+
+        public void Reset()
+        {
+            Voted = false;
         }
     }
 }
