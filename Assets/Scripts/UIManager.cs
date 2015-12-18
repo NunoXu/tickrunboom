@@ -16,6 +16,7 @@ namespace Assets.Scripts
         public GameObject VotingFrame;
         public GameManager GM;
         public Timer Timer;
+        public GameObject GameOverPanel;
 
         public GameObject MinigamePanel;
         public GameObject PuzzlePanel;
@@ -67,6 +68,12 @@ namespace Assets.Scripts
         public void SetLevelBackground(bool enabled)
         {
             LevelBackground.enabled = enabled;
+        }
+
+        [ClientRpc]
+        public void RpcGameOver()
+        {
+            GameOverPanel.SetActive(true);
         }
     }
 }

@@ -18,6 +18,9 @@ public class cardScript : NetworkBehaviour
     Vector3 card7;
     Vector3 card8;
     Vector3 card9;
+    Vector3 card10;
+    Vector3 card11;
+    Vector3 card12;
 
     public Sprite[] cardSprites;
     public Button myBtn;
@@ -42,7 +45,8 @@ public class cardScript : NetworkBehaviour
         if (this.gameObject.transform.position == card2 ||
              this.gameObject.transform.position == card4 ||
              this.gameObject.transform.position == card6 ||
-             this.gameObject.transform.position == card8){
+             this.gameObject.transform.position == card8)
+        {
              flag = 0;
         }
         else
@@ -80,6 +84,7 @@ public class cardScript : NetworkBehaviour
         {
             flag = 1;
         }
+
     }
 
     void OnGUI()

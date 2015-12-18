@@ -27,6 +27,9 @@ namespace Assets.Scripts
 
         public int currentLevel = 0;
         private int[] levelOrder;
+        private int currentLevelInOrder = 0;
+
+        private bool GameOver = false;
 
         public override void OnStartServer()
         {
@@ -74,6 +77,9 @@ namespace Assets.Scripts
 
         void Update()
         {
+            if (GameOver)
+                return;
+
             if (GameManager.timeLeft <= 0)
             {
                 if (!MinigameTime)
@@ -99,16 +105,20 @@ namespace Assets.Scripts
 
             if(MinigameTime && CurrentMinigame.IsWon())
             {
-
+                GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " has won the challenge!.", Color.red);
+                CleanMinigame();
+                MinigameTime = false;
+                ResetLevel();
             }
         }
 
         void ResetLevel()
         {
-            if (currentLevel >= levelOrder.Length)
+            if (currentLevelInOrder >= levelOrder.Length)
             {
                 //DemoOver
-                Application.LoadLevel(DemoEndScene);
+                GameOver = true;
+                GameManager.UI.RpcGameOver();
                 return;
             }
             var level = GetNextLevel();
@@ -126,7 +136,7 @@ namespace Assets.Scripts
 
         public int GetNextLevel()
         {
-            return levelOrder[currentLevel++];
+            return levelOrder[currentLevelInOrder++];
         }
 
         public Player GetChosenPlayer()
