@@ -17,6 +17,9 @@ namespace Assets.Scripts
         public GameManager GM;
         public Timer Timer;
 
+        public GameObject MinigamePanel;
+        public GameObject PuzzlePanel;
+
 
         public Text LevelText;
         public Image LevelBackground;
@@ -43,6 +46,7 @@ namespace Assets.Scripts
                 frame.transform.SetAsFirstSibling();
             }
         }
+        
 
         void OnGUI()
         {

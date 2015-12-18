@@ -20,11 +20,7 @@ namespace Assets.Scripts
         public List<Level> Levels;
         public List<GameObject> PlayerTraits;
         public ChatInputBox ChatInput;
-
-        [SyncVar]
-        public int CurrentLevelIndex;
         
-
         public UIManager UI;
         
         public List<Player> Players = new List<Player>();
@@ -32,6 +28,16 @@ namespace Assets.Scripts
 
         public bool loading = true;
 
+        public Level CurrentLevel
+        {
+            get
+            {
+                return Levels[CurrentLevelIndex].GetComponent<Level>();
+            }
+        }
+
+        [SyncVar]
+        public int CurrentLevelIndex;
 
         [SyncVar]
         public bool minigameUnderway = true;
@@ -158,22 +164,6 @@ namespace Assets.Scripts
             UI.RpcResetVotingFrames();
         }
 
-        public Player GetChosenPlayer()
-        {
-            int maxVotes = LocalPlayer.Votes;
-            Player chosenPlayer = LocalPlayer;
-
-            foreach (Player p in Players)
-            {
-                if (p.Votes > maxVotes)
-                {
-                    chosenPlayer = p;
-                    maxVotes = p.Votes;
-                }
-            }
-
-            return chosenPlayer;
-        }
         
     }
 }

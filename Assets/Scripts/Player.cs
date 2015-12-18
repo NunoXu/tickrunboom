@@ -50,7 +50,6 @@ namespace Assets.Scripts
         [SyncVar]
         public bool Dead = false;
 
-
         [SyncVar]
         public bool Voted = false;
 

@@ -15,9 +15,13 @@ namespace Assets.Scripts
         public List<GameObject> PlayerTraits;
         public GameManager GameManager;
         public float TimePerLevel = 10f;
+        private const float TIME_PER_MINIGAME = 15f;
 
         public static int playerNumber;
         public int currentPlayers = 0;
+
+        private bool MinigameTime = false;
+        private Player MinigamePlayer;
 
         private int currentLevel = 0;
         private int[] levelOrder;
@@ -70,22 +74,60 @@ namespace Assets.Scripts
         {
             if (GameManager.timeLeft <= 0)
             {
-                Player pl = GameManager.GetChosenPlayer();
-                GameManager.ChatInput.SendSpecificMessage("Player " + pl.NickName + " was chosen.", Color.red);
-                
-                var level = GetNextLevel();
-                GameManager.LoadNextLevel(TimePerLevel, level);
-                foreach (Player p in Players)
+                if (!MinigameTime)
                 {
-                    p.Reset();
+                    MinigamePlayer = GetChosenPlayer();
+                    GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
+                    Application.LoadLevelAdditive(GameManager.CurrentLevel.MiniGameScene);
+                    GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
+                    GameManager.timeLeft = TIME_PER_MINIGAME;
+                    MinigameTime = true;
+                } else
+                {
+                    MinigamePlayer.Dead = true;
+                    GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " didn't make it in time.", Color.red);
+                    CleanMinigame();
+                    ResetLevel();
                 }
             }
+        }
+
+        void ResetLevel()
+        {
+            var level = GetNextLevel();
+            GameManager.LoadNextLevel(TimePerLevel, level);
+            foreach (Player p in Players)
+            {
+                p.Reset();
+            }
+        }
+
+        void CleanMinigame()
+        {
+
         }
 
         public int GetNextLevel()
         {
             return levelOrder[currentLevel++];
         }
-        
+
+        public Player GetChosenPlayer()
+        {
+            int maxVotes = Players[0].Votes;
+            Player chosenPlayer = Players[0];
+
+            foreach (Player p in Players)
+            {
+                if (p.Votes > maxVotes)
+                {
+                    chosenPlayer = p;
+                    maxVotes = p.Votes;
+                }
+            }
+
+            return chosenPlayer;
+        }
+
     }
 }
