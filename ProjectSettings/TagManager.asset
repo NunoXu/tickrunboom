@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - VotingFrame
+  - ChatTextBox
+  - ChatTextPanel
+  - GameManager
+  - PlayerVotingFrame
+  - ServerGameManager
   layers:
   - Default
   - TransparentFX

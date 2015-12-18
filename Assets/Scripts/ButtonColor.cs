@@ -6,6 +6,10 @@ using System.Collections;
 public class ButtonColor : MonoBehaviour {
 
     float timeLeft;
+
+    
+    public GameObject votesPanel;
+
     // Use this for initialization
     void Start () {
 	    
@@ -15,7 +19,7 @@ public class ButtonColor : MonoBehaviour {
 	void Update () {
 
         GameObject t = GameObject.Find("Time");
-        timeLeft = t.GetComponent<Timer>().getTimeLeft();
+       // timeLeft = t.GetComponent<Timer>().getTimeLeft();
 
         Button b = GetComponent<Button>();
 
