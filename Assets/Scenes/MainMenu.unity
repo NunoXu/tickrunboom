@@ -117,10 +117,10 @@ RectTransform:
   - {fileID: 866870259}
   m_Father: {fileID: 1018494886}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6, y: -148.300003}
-  m_SizeDelta: {x: -569, y: -345.5}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 6, y: 103.300003}
+  m_SizeDelta: {x: 231, y: 157.799988}
   m_Pivot: {x: .5, y: .5}
 --- !u!222 &370167829
 CanvasRenderer:

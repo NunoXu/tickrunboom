@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Traits;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace Assets.Scripts.Rooms
     {
         public TextAsset LevelText;
         public Sprite LevelBackground;
-        public string MiniGameScene;
+        public string EasyMiniGameScene;
+        public string HardMiniGameScene;
+        public Trait SolvingTrait;
     }
 }

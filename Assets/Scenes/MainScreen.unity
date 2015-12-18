@@ -266,10 +266,10 @@ RectTransform:
   - {fileID: 1399971477}
   m_Father: {fileID: 1802093172}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -23.7000008, y: 187.899994}
-  m_SizeDelta: {x: 128.399994, y: 26.8999996}
+  m_AnchorMin: {x: .5, y: 1}
+  m_AnchorMax: {x: .5, y: 1}
+  m_AnchoredPosition: {x: -19.7999992, y: -18.1000004}
+  m_SizeDelta: {x: 128.399994, y: 26.8999939}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &115511795
 MonoBehaviour:
@@ -622,12 +622,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &317413705 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881,
-    type: 2}
-  m_PrefabInternal: {fileID: 1276906537}
-  m_Script: {fileID: 11500000, guid: 5b48a99e04acc0146b4d005d1299118d, type: 3}
 --- !u!1 &335979399
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,9 +880,27 @@ Prefab:
       propertyPath: MiniGameScene
       value: pipeGame
       objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: SolvingTrait
+      value: 
+      objectReference: {fileID: 1352723190}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: EasyMiniGameScene
+      value: pipeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: HardMiniGameScene
+      value: pipeGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fee69f19c39aefa42a260221739f6881, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &381406370 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881,
+    type: 2}
+  m_PrefabInternal: {fileID: 381406369}
+  m_Script: {fileID: 11500000, guid: 5b48a99e04acc0146b4d005d1299118d, type: 3}
 --- !u!4 &381406371 stripped
 Transform:
   m_PrefabParentObject: {fileID: 405326, guid: fee69f19c39aefa42a260221739f6881, type: 2}
@@ -932,6 +944,7 @@ MonoBehaviour:
   - {fileID: 694849422}
   GameManager: {fileID: 1498357448}
   TimePerLevel: 30
+  DemoEndScene: DemoEnd
   currentPlayers: 0
 --- !u!114 &392214927
 MonoBehaviour:
@@ -1178,22 +1191,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 8
-    i1: 13
-    i2: 137
-    i3: 172
-    i4: 49
-    i5: 40
-    i6: 217
-    i7: 68
-    i8: 120
-    i9: 13
-    i10: 9
-    i11: 44
-    i12: 238
-    i13: 185
-    i14: 10
-    i15: 123
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!1001 &648224187
@@ -2123,6 +2136,18 @@ Prefab:
       propertyPath: MiniGameScene
       value: BoxMiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: EasyMiniGameScene
+      value: boxMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: HardMiniGameScene
+      value: boxMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: SolvingTrait
+      value: 
+      objectReference: {fileID: 694849424}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: fee69f19c39aefa42a260221739f6881, type: 2}
@@ -2328,6 +2353,18 @@ Prefab:
       propertyPath: MiniGameScene
       value: medicGame
       objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: SolvingTrait
+      value: 
+      objectReference: {fileID: 1646680800}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: EasyMiniGameScene
+      value: medicGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: HardMiniGameScene
+      value: medicGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fee69f19c39aefa42a260221739f6881, type: 2}
   m_IsPrefabParent: 0
@@ -2335,11 +2372,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 405326, guid: fee69f19c39aefa42a260221739f6881, type: 2}
   m_PrefabInternal: {fileID: 1276906537}
---- !u!114 &1277035556 stripped
+--- !u!114 &1276906539 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881,
     type: 2}
-  m_PrefabInternal: {fileID: 381406369}
+  m_PrefabInternal: {fileID: 1276906537}
   m_Script: {fileID: 11500000, guid: 5b48a99e04acc0146b4d005d1299118d, type: 3}
 --- !u!1 &1318187721
 GameObject:
@@ -2614,10 +2651,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 080d89ac3128d944780d092ceeb90a7b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1352327129 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22426846, guid: 080d89ac3128d944780d092ceeb90a7b,
-    type: 2}
+--- !u!4 &1352327129 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1352327128}
 --- !u!1 &1352723188
 GameObject:
@@ -3259,8 +3295,8 @@ MonoBehaviour:
   networkManager: {fileID: 0}
   Levels:
   - {fileID: 1139938579}
-  - {fileID: 1277035556}
-  - {fileID: 317413705}
+  - {fileID: 381406370}
+  - {fileID: 1276906539}
   PlayerTraits:
   - {fileID: 804501734}
   - {fileID: 2051015920}

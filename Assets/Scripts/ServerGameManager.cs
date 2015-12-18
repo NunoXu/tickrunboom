@@ -16,6 +16,7 @@ namespace Assets.Scripts
         public GameManager GameManager;
         public float TimePerLevel = 10f;
         private const float TIME_PER_MINIGAME = 15f;
+        public string DemoEndScene;
 
         public static int playerNumber;
         public int currentPlayers = 0;
@@ -23,7 +24,7 @@ namespace Assets.Scripts
         private bool MinigameTime = false;
         private Player MinigamePlayer;
 
-        private int currentLevel = 0;
+        public int currentLevel = 0;
         private int[] levelOrder;
 
         public override void OnStartServer()
@@ -78,7 +79,10 @@ namespace Assets.Scripts
                 {
                     MinigamePlayer = GetChosenPlayer();
                     GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
-                    Application.LoadLevelAdditive(GameManager.CurrentLevel.MiniGameScene);
+                    if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
+                        Application.LoadLevelAdditive(GameManager.CurrentLevel.EasyMiniGameScene);
+                    else
+                        Application.LoadLevelAdditive(GameManager.CurrentLevel.HardMiniGameScene);
                     GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
                     GameManager.timeLeft = TIME_PER_MINIGAME;
                     MinigameTime = true;
@@ -87,6 +91,7 @@ namespace Assets.Scripts
                     MinigamePlayer.Dead = true;
                     GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " didn't make it in time.", Color.red);
                     CleanMinigame();
+                    MinigameTime = false;
                     ResetLevel();
                 }
             }
@@ -94,6 +99,12 @@ namespace Assets.Scripts
 
         void ResetLevel()
         {
+            if (currentLevel >= levelOrder.Length)
+            {
+                //DemoOver
+                Application.LoadLevel(DemoEndScene);
+                return;
+            }
             var level = GetNextLevel();
             GameManager.LoadNextLevel(TimePerLevel, level);
             foreach (Player p in Players)
