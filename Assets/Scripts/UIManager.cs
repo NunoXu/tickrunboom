@@ -63,5 +63,10 @@ namespace Assets.Scripts
                 vf.Reset();
             }
         }
+
+        public void SetLevelBackground(bool enabled)
+        {
+            LevelBackground.enabled = enabled;
+        }
     }
 }

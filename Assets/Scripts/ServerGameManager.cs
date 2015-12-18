@@ -23,6 +23,7 @@ namespace Assets.Scripts
 
         private bool MinigameTime = false;
         private Player MinigamePlayer;
+        private MiniGame CurrentMinigame;
 
         public int currentLevel = 0;
         private int[] levelOrder;
@@ -80,9 +81,9 @@ namespace Assets.Scripts
                     MinigamePlayer = GetChosenPlayer();
                     GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
                     if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
-                        Application.LoadLevelAdditive(GameManager.CurrentLevel.EasyMiniGameScene);
+                        LoadMinigame(GameManager.CurrentLevel.EasyMiniGame, MinigamePlayer);
                     else
-                        Application.LoadLevelAdditive(GameManager.CurrentLevel.HardMiniGameScene);
+                        LoadMinigame(GameManager.CurrentLevel.HardMiniGame, MinigamePlayer);
                     GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
                     GameManager.timeLeft = TIME_PER_MINIGAME;
                     MinigameTime = true;
@@ -94,6 +95,11 @@ namespace Assets.Scripts
                     MinigameTime = false;
                     ResetLevel();
                 }
+            }
+
+            if(MinigameTime && CurrentMinigame.IsWon())
+            {
+
             }
         }
 
@@ -115,7 +121,7 @@ namespace Assets.Scripts
 
         void CleanMinigame()
         {
-
+            CurrentMinigame.RpcDeactivate();
         }
 
         public int GetNextLevel()
@@ -139,6 +145,15 @@ namespace Assets.Scripts
 
             return chosenPlayer;
         }
+
+        private void LoadMinigame(GameObject minigame, Player activePlayer)
+        {
+            GameManager.UI.SetLevelBackground(false);
+            CurrentMinigame = minigame.GetComponent<MiniGame>();
+            CurrentMinigame.activePlayerId = activePlayer.id;
+            CurrentMinigame.RpcActivate();
+        }
+        
 
     }
 }

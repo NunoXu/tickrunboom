@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.Networking;
+using Assets.Scripts;
 
-
-public class cardScript : MonoBehaviour
+public class cardScript : NetworkBehaviour
 {
+    [SyncVar]
     public int flag = 0;
 
     Vector3 card1;
@@ -20,6 +21,9 @@ public class cardScript : MonoBehaviour
 
     public Sprite[] cardSprites;
     public Button myBtn;
+    public cardScript[] adjacentCards;
+    public GameManager gm;
+    public MedicMiniGameManager mgm;
 
 
     // Use this for initialization
@@ -40,309 +44,47 @@ public class cardScript : MonoBehaviour
              this.gameObject.transform.position == card6 ||
              this.gameObject.transform.position == card8){
              flag = 0;
-             myBtn.image.sprite = cardSprites[0];
         }
         else
         {
             flag = 1;
-            myBtn.image.sprite = cardSprites[1];
         }
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CallCmdFlip()
     {
-       
+        if (mgm.activePlayerId != gm.LocalPlayer.id)
+            return;
+
+         gm.LocalPlayer.FlipCard(this.gameObject);
+    }
+    
+
+    public void FlipAdjacent()
+    {
+        foreach (cardScript card in adjacentCards)
+        {
+            card.Flip();
+        }
     }
 
-    public void flip()
+
+    public void Flip()
     {
         if (flag == 1)
         {
             flag = 0;
-            myBtn.image.sprite = cardSprites[0];
-
         }
         else
         {
             flag = 1;
-            myBtn.image.sprite = cardSprites[1];
         }
-        //card 1
-        if (this.gameObject.transform.position == card1)
-        {
-            Button temp = GameObject.Find("card_2").GetComponent<Button>();
-            if (GameObject.Find("card_2").GetComponent<cardScript>().flag == 0){
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 1;
-            }else{
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_4").GetComponent<Button>();
-            if (GameObject.Find("card_4").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 2
-        if (this.gameObject.transform.position == card2)
-        {
-            Button temp = GameObject.Find("card_1").GetComponent<Button>();
-            if (GameObject.Find("card_1").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_1").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_1").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_3").GetComponent<Button>();
-            if (GameObject.Find("card_3").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_3").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_3").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_5").GetComponent<Button>();
-            if (GameObject.Find("card_5").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 3
-        if (this.gameObject.transform.position == card3)
-        {
-            Button temp = GameObject.Find("card_2").GetComponent<Button>();
-            if (GameObject.Find("card_2").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_6").GetComponent<Button>();
-            if (GameObject.Find("card_6").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 4
-        if (this.gameObject.transform.position == card4)
-            {
-            Button temp = GameObject.Find("card_1").GetComponent<Button>();
-            if (GameObject.Find("card_1").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_1").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_1").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_5").GetComponent<Button>();
-            if (GameObject.Find("card_5").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_7").GetComponent<Button>();
-            if (GameObject.Find("card_7").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_7").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_7").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 5
-        if (this.gameObject.transform.position == card5)
-        {
-            Button temp = GameObject.Find("card_2").GetComponent<Button>();
-            if (GameObject.Find("card_2").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_2").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_4").GetComponent<Button>();
-            if (GameObject.Find("card_4").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_6").GetComponent<Button>();
-            if (GameObject.Find("card_6").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_8").GetComponent<Button>();
-            if (GameObject.Find("card_8").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 6
-        if (this.gameObject.transform.position == card6)
-        {
-            Button temp = GameObject.Find("card_3").GetComponent<Button>();
-            if (GameObject.Find("card_3").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_3").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_3").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_5").GetComponent<Button>();
-            if (GameObject.Find("card_5").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_9").GetComponent<Button>();
-            if (GameObject.Find("card_9").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_9").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_9").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 7
-        if (this.gameObject.transform.position == card7)
-        {
-            Button temp = GameObject.Find("card_4").GetComponent<Button>();
-            if (GameObject.Find("card_4").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_4").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_8").GetComponent<Button>();
-            if (GameObject.Find("card_8").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 0;
-            }          
-        }
-        //card 8
-        if (this.gameObject.transform.position == card8)
-        {
-            Button temp = GameObject.Find("card_7").GetComponent<Button>();
-            if (GameObject.Find("card_7").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_7").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_7").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_5").GetComponent<Button>();
-            if (GameObject.Find("card_5").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_5").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_9").GetComponent<Button>();
-            if (GameObject.Find("card_9").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_9").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_9").GetComponent<cardScript>().flag = 0;
-            }
-        }
-        //card 9
-        if (this.gameObject.transform.position == card9)
-        {
-            Button temp = GameObject.Find("card_8").GetComponent<Button>();
-            if (GameObject.Find("card_8").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_8").GetComponent<cardScript>().flag = 0;
-            }
-            temp = GameObject.Find("card_6").GetComponent<Button>();
-            if (GameObject.Find("card_6").GetComponent<cardScript>().flag == 0)
-            {
-                temp.image.sprite = cardSprites[1];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 1;
-            }
-            else {
-                temp.image.sprite = cardSprites[0];
-                GameObject.Find("card_6").GetComponent<cardScript>().flag = 0;
-            }
-        }
+    }
+
+    void OnGUI()
+    {
+        myBtn.image.sprite = cardSprites[flag];
     }
 
   

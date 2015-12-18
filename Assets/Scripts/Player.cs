@@ -69,6 +69,17 @@ namespace Assets.Scripts
             gameManager.GetPlayerById(votedPlayerId).Votes--;
         }
 
+        public void FlipCard(GameObject card)
+        {
+            CmdFlipCard(card);
+        }
+
+        [Command]
+        public void CmdFlipCard(GameObject card)
+        {
+            card.GetComponent<cardScript>().Flip();
+            card.GetComponent<cardScript>().FlipAdjacent();
+        }
 
 
         [Command]
@@ -108,6 +119,8 @@ namespace Assets.Scripts
             this.trait = trait.GetComponent<Trait>();
             this.id = id;
         }
+
+
 
 
         public Sprite GetTraitImage()

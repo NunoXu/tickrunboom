@@ -28,6 +28,8 @@ namespace Assets.Scripts
 
         public bool loading = true;
 
+        public MiniGame CurrentMiniGame;
+
         public Level CurrentLevel
         {
             get
@@ -161,9 +163,10 @@ namespace Assets.Scripts
         {
             CurrentLevelIndex = levelIndex;
             timeLeft = TimePerLevel;
+            UI.SetLevelBackground(true);
             UI.RpcResetVotingFrames();
         }
-
         
     }
 }
+ 
