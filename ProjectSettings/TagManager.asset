@@ -10,6 +10,7 @@ TagManager:
   - GameManager
   - PlayerVotingFrame
   - ServerGameManager
+  - Pipe
   layers:
   - Default
   - TransparentFX

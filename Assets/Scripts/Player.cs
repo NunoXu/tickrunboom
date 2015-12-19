@@ -81,6 +81,17 @@ namespace Assets.Scripts
             card.GetComponent<cardScript>().FlipAdjacent();
         }
 
+        public void RotatePipe(GameObject pipe)
+        {
+            CmdRotatePipe(pipe);
+        }
+
+        [Command]
+        public void CmdRotatePipe(GameObject pipe)
+        {
+            pipe.GetComponent<pipeScript>().RpcRotate();
+        }
+
 
         [Command]
         public void CmdSendMessage(string msg, GameObject chatSpawn)
