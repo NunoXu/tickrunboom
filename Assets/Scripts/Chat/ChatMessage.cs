@@ -25,10 +25,10 @@ namespace Assets.Scripts.Chat
             Text.text = text;
         }
 
-        public void ShowMessage(string playerNickname, string text)
+        public void ShowMessage(string playerNickname, string playerTrait, string text)
         {
             Text.horizontalOverflow = HorizontalWrapMode.Wrap;
-            Text.text = playerNickname + ": " + text;
+            Text.text = playerNickname + " (" +playerTrait + ")" + ": " + text;
         }
 
     }

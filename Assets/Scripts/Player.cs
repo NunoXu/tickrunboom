@@ -96,24 +96,24 @@ namespace Assets.Scripts
 
 
         [Command]
-        public void CmdSendMessage(string sender, string msg, GameObject chatSpawn)
+        public void CmdSendMessage(string sender, string senderTrait, string msg, GameObject chatSpawn)
         {
             
             GameObject clone = Instantiate(MessagePrefab);
             clone.transform.SetParent(chatSpawn.transform, false);
             clone.transform.SetAsFirstSibling();
-            clone.GetComponent<ChatMessage>().ShowMessage(sender, msg);
+            clone.GetComponent<ChatMessage>().ShowMessage(sender, senderTrait, msg);
             NetworkServer.Spawn(clone);
-            RpcSyncOnce(clone, sender, msg, chatSpawn);
+            RpcSyncOnce(clone, sender, senderTrait, msg, chatSpawn);
             
         }
 
         [ClientRpc]
-        public void RpcSyncOnce(GameObject message, string sender, string msg, GameObject parent)
+        public void RpcSyncOnce(GameObject message, string sender, string senderTrait, string msg, GameObject parent)
         {
             message.transform.SetParent(parent.transform, false);
             message.transform.SetAsFirstSibling();
-            message.GetComponent<ChatMessage>().ShowMessage(sender, msg);
+            message.GetComponent<ChatMessage>().ShowMessage(sender, senderTrait, msg);
         }
 
         [ClientRpc]
@@ -143,7 +143,7 @@ namespace Assets.Scripts
         public void SendChatMessage(string msg)
         {
             if (!isLocalPlayer) { return; }
-            CmdSendMessage(NickName, msg, chatSpawn);
+            CmdSendMessage(NickName, trait.Name, msg, chatSpawn);
         }
 
         public void Reset()
