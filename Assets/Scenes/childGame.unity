@@ -115,7 +115,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 140.90004, y: 103.5}
@@ -127,13 +127,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 36023459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 36023462}
   myBtn2: {fileID: 1128273088}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &36023462
@@ -175,8 +176,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36023461}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -251,7 +252,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -409.799988, y: -56.9999771}
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 291580164}
   myBtn2: {fileID: 1259300153}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &291580164
@@ -357,6 +359,168 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 291580161}
+--- !u!1 &478104121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 478104122}
+  - 222: {fileID: 478104125}
+  - 114: {fileID: 478104124}
+  - 114: {fileID: 478104123}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &478104122
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478104121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002818575}
+  m_RootOrder: 15
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -7.62939999e-06, y: 343}
+  m_SizeDelta: {x: 320, y: 40}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &478104123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478104121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBtn: {fileID: 0}
+  myBtn2: {fileID: 0}
+  myScore: {fileID: 478104124}
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+--- !u!114 &478104124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478104121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &478104125
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478104121}
+--- !u!1 &687717257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 687717258}
+  - 222: {fileID: 687717260}
+  - 114: {fileID: 687717259}
+  m_Layer: 5
+  m_Name: Rules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &687717258
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687717257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002818575}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 1, y: -334}
+  m_SizeDelta: {x: 860, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &687717259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687717257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Find the differences between the two pictures and click on them on the left
+    one.
+--- !u!222 &687717260
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687717257}
 --- !u!1 &958512265
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +635,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 687717258}
   - {fileID: 291580162}
   - {fileID: 1206181914}
   - {fileID: 1128273086}
@@ -480,11 +645,12 @@ RectTransform:
   - {fileID: 36023460}
   - {fileID: 1652162785}
   - {fileID: 1036144282}
-  - {fileID: 1044908888}
-  - {fileID: 1450887719}
   - {fileID: 1259300151}
   - {fileID: 1123444076}
   - {fileID: 1734274785}
+  - {fileID: 1044908888}
+  - {fileID: 1450887719}
+  - {fileID: 478104122}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -576,7 +742,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 128.5, y: 14}
@@ -621,8 +787,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1036144284}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -640,13 +806,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036144281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1036144283}
   myBtn2: {fileID: 1692573380}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1036144285
@@ -737,7 +904,7 @@ Transform:
   m_LocalScale: {x: 35, y: 35, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 9
+  m_RootOrder: 13
 --- !u!1 &1087976234
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +1009,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 409, y: 136.5}
@@ -854,13 +1021,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123444075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1123444078}
   myBtn2: {fileID: 1692573380}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1123444078
@@ -902,8 +1070,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1123444077}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -978,7 +1146,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -409.799988, y: 109}
@@ -997,6 +1165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1128273088}
   myBtn2: {fileID: 36023462}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1128273088
@@ -1114,7 +1283,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -238.899994, y: -95}
@@ -1133,6 +1302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1206181916}
   myBtn2: {fileID: 1734274787}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1206181916
@@ -1250,7 +1420,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 140.899994, y: -57}
@@ -1262,13 +1432,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259300150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1259300153}
   myBtn2: {fileID: 291580164}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1259300153
@@ -1310,8 +1481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1259300152}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1386,7 +1557,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -137, y: 136.5}
@@ -1405,6 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1423731815}
   myBtn2: {fileID: 1123444078}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1423731815
@@ -1547,7 +1719,7 @@ Transform:
   m_LocalScale: {x: 35, y: 35, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 10
+  m_RootOrder: 14
 --- !u!1 &1652162784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1750,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 308.799988, y: 196.800018}
@@ -1623,8 +1795,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1652162787}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1642,13 +1814,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1652162784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1652162786}
   myBtn2: {fileID: 1891255595}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1652162788
@@ -1714,7 +1887,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -429.100006, y: 14}
@@ -1733,6 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1692573380}
   myBtn2: {fileID: 1036144283}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1692573380
@@ -1850,7 +2024,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 308.799988, y: -95.0000076}
@@ -1862,13 +2036,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1734274784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c407dd98ec68143af4674a948ea927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1734274787}
   myBtn2: {fileID: 1206181916}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1734274787
@@ -1910,8 +2085,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734274786}
-        m_MethodName: onClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1986,7 +2161,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1002818575}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -238.899994, y: 196.800003}
@@ -2005,6 +2180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBtn: {fileID: 1891255595}
   myBtn2: {fileID: 1652162786}
+  myScore: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 546ac0823e9dff54eb6571d2b4d5a37e, type: 3}
   sprite2: {fileID: 21300000, guid: 056e3a4194035ed4c95bf6746918a66e, type: 3}
 --- !u!114 &1891255595

@@ -12,13 +12,13 @@ public class ButtonVisibilityHard: MonoBehaviour
     public Sprite sprite1;
     public Sprite sprite2;
     bool isWon;
-   static int toWin;
+   static int toWinHard;
 
     // Use this for initialization
     void Start()
     {
         found = 0;
-        toWin = 5;
+        toWinHard = 5;
         isWon = false;
 
     }
@@ -28,7 +28,7 @@ public class ButtonVisibilityHard: MonoBehaviour
     {
         Button b = GetComponent<Button>();
 
-        if (toWin < 0)
+        if (toWinHard < 0)
         {
             isWon = true;
         } else {
@@ -56,7 +56,7 @@ public class ButtonVisibilityHard: MonoBehaviour
 
         if (found == 0 && isWon == false) { 
             found = 1;
-        toWin--;
+            toWinHard--;
         }
 
 
