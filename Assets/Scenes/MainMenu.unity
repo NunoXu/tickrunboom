@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf951be5b104aa4c93f9096756856a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkAddress: {fileID: 0}
 --- !u!1 &376857579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player Number
+  m_Text: Number of Players
 --- !u!222 &1884207194
 CanvasRenderer:
   m_ObjectHideFlags: 0

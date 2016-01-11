@@ -1671,8 +1671,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: -22.1000004, y: 1.02820002e-06}
-  m_SizeDelta: {x: -65.3000031, y: 38.7999992}
+  m_AnchoredPosition: {x: -25, y: 1.02820013e-06}
+  m_SizeDelta: {x: -59, y: 39}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &473189531
 MonoBehaviour:
@@ -1705,7 +1705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is the exercise one of you must overcome.
+  m_Text: This is the room narrative. It holds hints to the solution to the puzzle
 --- !u!222 &473189532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1777,7 +1777,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Here are your fellow teamates (and adversaries)
+  m_Text: Here are your fellow teammates/opponents
 --- !u!222 &479545919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Welcome to our little game. \n\nTake some time to get accustumed with the
+  m_Text: "Welcome to our little game! \n\nTake some time to get accustomed with the
     interface while we wait for the rest of the lost lambs.\n\n"
 --- !u!222 &695046096
 CanvasRenderer:
@@ -2589,7 +2589,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 373891935}
   m_Direction: 2
   m_Value: 0
-  m_Size: .99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
