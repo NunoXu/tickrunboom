@@ -101,6 +101,7 @@ namespace Assets.Scripts
 
                     if (!WaitTime)
                     {
+                        GameManager.DisableVoteFrames();
                         MinigamePlayer = GetChosenPlayer();
                         GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
                         WaitTime = true;
@@ -138,7 +139,6 @@ namespace Assets.Scripts
 
         void LaunchMiniGame()
         {
-            GameManager.DisableVoteFrames();
             if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
             {
                 LoadMinigame(GameManager.CurrentLevel.EasyMiniGamScene);

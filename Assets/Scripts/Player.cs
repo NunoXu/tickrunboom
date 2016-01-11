@@ -17,6 +17,8 @@ namespace Assets.Scripts
     {
 
         public int id;
+
+        [SyncVar]
         public string NickName;
         public GameObject MessagePrefab;
         public GameObject chatSpawn;
