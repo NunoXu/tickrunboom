@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Networking;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Rooms.PipeMiniGame
 {
     public class PipeMiniGameManager : MiniGame
     {

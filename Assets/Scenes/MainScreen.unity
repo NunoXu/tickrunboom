@@ -2468,7 +2468,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: HardMiniGameScene
-      value: medicGame
+      value: medicGame Hard
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: EasyMiniGame
