@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Chat;
 using Assets.Scripts.Rooms;
 using Assets.Scripts.Rooms.MedicMiniGame;
+using Assets.Scripts.Rooms.PipeMiniGame;
 using Assets.Scripts.Traits;
 using System;
 using System.Collections.Generic;
