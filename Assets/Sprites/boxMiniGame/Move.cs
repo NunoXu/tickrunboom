@@ -1,37 +1,48 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections;
-using Assets.Scripts;
 
 public class Move : MonoBehaviour {
 
-    string flagPos = "stop";
-
+    public string flagPos = "stop";
+    Vector3 newPos;
     // Use this for initialization
+
+    public GameObject box1;
+    public GameObject box2;
+    public GameObject box3;
+    public GameObject box4;
+    public GameObject box5;
+    public GameObject box6;
+    public GameObject box7;
+    public GameObject box8;
+    public GameObject box9;
+    public GameObject box10;
+
+    public GameObject blackbox1;
+    public GameObject blackbox2;
+    public GameObject blackbox3;
+    public GameObject blackbox4;
+    public GameObject blackbox5;
+    // public GameObject blackbox6;
+
+    public bool wincon;
+    public Text text;
+    public ParticleSystem part;
+    static int canCheck;
+
+
     void Start () {
-       
-	}
+        wincon = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        winCon();
+        GameObject g = GetComponent<GameObject>();
 
-        Vector3 box1 = GameObject.Find("whiteBox").transform.position;
-        Vector3 box2 = GameObject.Find("whiteBox_1").transform.position;
-        Vector3 box3 = GameObject.Find("whiteBox_2").transform.position;
-        Vector3 box4 = GameObject.Find("whiteBox_3").transform.position;
-        Vector3 box5 = GameObject.Find("whiteBox_4").transform.position;
-        Vector3 box6 = GameObject.Find("whiteBox_5").transform.position;
-        Vector3 box7 = GameObject.Find("whiteBox_6").transform.position;
-        Vector3 box8 = GameObject.Find("whiteBox_7").transform.position;
-        Vector3 box9 = GameObject.Find("whiteBox_8").transform.position;
-        Vector3 box10 = GameObject.Find("whiteBox_9").transform.position;
-
-        Vector3 blackbox1 = GameObject.Find("blackBox").transform.position;
-        Vector3 blackbox2 = GameObject.Find("blackBox_1").transform.position;
-        Vector3 blackbox3 = GameObject.Find("blackBox_2").transform.position;
-        Vector3 blackbox4 = GameObject.Find("blackBox_3").transform.position;
-        Vector3 blackbox5 = GameObject.Find("blackBox_4").transform.position;
-        Vector3 blackbox6 = GameObject.Find("blackBox_5").transform.position;
 
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -43,163 +54,107 @@ public class Move : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.DownArrow))
             flagPos = "down";
 
-        if(flagPos == "right")
-             while (transform.position.x < 4){
-                Vector3 newPos = transform.position + new Vector3(2, 0, 0);
-
-                if (newPos == box1)
-                    break;
-                if (newPos == box2)
-                    break;
-                if (newPos == box3)
-                    break;
-                if (newPos == box4)
-                    break;
-                if (newPos == box5)
-                    break;
-                if (newPos == box6)
-                    break;
-                if (newPos == box7)
-                    break;
-                if (newPos == box8)
-                    break;
-                if (newPos == box9)
-                    break;
-                if (newPos == box10)
-                    break;
-                if (newPos == blackbox1)
-                    break;
-                if (newPos == blackbox2)
-                    break;
-                if (newPos == blackbox3)
-                    break;
-                if (newPos == blackbox4)
-                    break;
-                if (newPos == blackbox5)
-                    break;
-                if (newPos == blackbox6)
-                    break;
-
-                transform.position = newPos;
-            }
-
-        if (flagPos == "left")
-            while (transform.position.x > -4)
+        if(flagPos != "stop" && text.GetComponent<boxWinCon>().winner == false)
+        {
+        
+            newPos = transform.position + new Vector3((float)0.75, 0, 0);
+            switch (flagPos)
             {
-                Vector3 newPos = transform.position + new Vector3(-2, 0, 0);
-
-                if (newPos == box1)
+                case "right":                    
+                   // Debug.Log("current: "+transform.position+"new pos: "+newPos + "current f: " + box1.transform.position);                   
+                    if (colisao(newPos))
+                    transform.position = newPos;
                     break;
-                if (newPos == box2)
+                case "left":
+                    newPos = transform.position + new Vector3((float)-0.75, 0, 0);
+                    if (colisao(newPos))
+                    transform.position = newPos;
                     break;
-                if (newPos == box3)
+                case "up":
+                    newPos = transform.position + new Vector3(0,(float)0.75, 0);
+                   if (colisao(newPos))
+                        transform.position = newPos;
                     break;
-                if (newPos == box4)
+                case "down":
+                    newPos = transform.position + new Vector3(0,(float)-0.75, 0);
+                    if (colisao(newPos))
+                        transform.position = newPos;
                     break;
-                if (newPos == box5)
-                    break;
-                if (newPos == box6)
-                    break;
-                if (newPos == box7)
-                    break;
-                if (newPos == box8)
-                    break;
-                if (newPos == box9)
-                    break;
-                if (newPos == box10)
-                    break;
-                if (newPos == blackbox1)
-                    break;
-                if (newPos == blackbox2)
-                    break;
-                if (newPos == blackbox3)
-                    break;
-                if (newPos == blackbox4)
-                    break;
-                if (newPos == blackbox5)
-                    break;
-                if (newPos == blackbox6)
-                    break;
-
-                transform.position = newPos;
             }
-
-        if (flagPos == "up")
-            while (transform.position.y < 4)
+            if (colisao(newPos) && transform.position == newPos)
             {
-                Vector3 newPos = transform.position + new Vector3(0, 2, 0);
-                if (newPos == box1)
-                    break;
-                if (newPos == box2)
-                    break;
-                if (newPos == box3)
-                    break;
-                if (newPos == box4)
-                    break;
-                if (newPos == box5)
-                    break;
-                if (newPos == box6)
-                    break;
-                if (newPos == box7)
-                    break;
-                if (newPos == box8)
-                    break;
-                if (newPos == box9)
-                    break;
-                if (newPos == box10)
-                    break;
-                if (newPos == blackbox1)
-                    break;
-                if (newPos == blackbox2)
-                    break;
-                if (newPos == blackbox3)
-                    break;
-                if (newPos == blackbox4)
-                    break;
-                if (newPos == blackbox5)
-                    break;
-                if (newPos == blackbox6)
-                    break;
-                transform.position = newPos;
-            }
+                winCon();
+                flagPos = "stop";
+            }              
+            }       
+    }
 
-        if (flagPos == "down")
-            while (transform.position.y > -4)
-            {
-                Vector3 newPos = transform.position + new Vector3(0, -2, 0);
-                if (newPos == box1)
-                    break;
-                if (newPos == box2)
-                    break;
-                if (newPos == box3)
-                    break;
-                if (newPos == box4)
-                    break;
-                if (newPos == box5)
-                    break;
-                if (newPos == box6)
-                    break;
-                if (newPos == box7)
-                    break;
-                if (newPos == box8)
-                    break;
-                if (newPos == box9)
-                    break;
-                if (newPos == box10)
-                    break;
-                if (newPos == blackbox1)
-                    break;
-                if (newPos == blackbox2)
-                    break;
-                if (newPos == blackbox3)
-                    break;
-                if (newPos == blackbox4)
-                    break;
-                if (newPos == blackbox5)
-                    break;
-                if (newPos == blackbox6)
-                    break;
-                transform.position = newPos;
-            }
+
+    public bool colisao(Vector3 pos)
+    {
+        if (box1 == null)
+            return false;
+
+
+        if (Mathf.Approximately(newPos.x, box1.transform.position.x) && Mathf.Approximately(newPos.y, box1.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box2.transform.position.x) && Mathf.Approximately(newPos.y, box2.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box3.transform.position.x) && Mathf.Approximately(newPos.y, box3.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box4.transform.position.x) && Mathf.Approximately(newPos.y, box4.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box5.transform.position.x) && Mathf.Approximately(newPos.y, box5.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box6.transform.position.x) && Mathf.Approximately(newPos.y, box6.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box7.transform.position.x) && Mathf.Approximately(newPos.y, box7.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box8.transform.position.x) && Mathf.Approximately(newPos.y, box8.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box9.transform.position.x) && Mathf.Approximately(newPos.y, box9.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, box10.transform.position.x) && Mathf.Approximately(newPos.y, box10.transform.position.y))
+            return false;
+        //black
+
+        if (Mathf.Approximately(newPos.x, blackbox1.transform.position.x) && Mathf.Approximately(newPos.y, blackbox1.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, blackbox2.transform.position.x) && Mathf.Approximately(newPos.y, blackbox2.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, blackbox3.transform.position.x) && Mathf.Approximately(newPos.y, blackbox3.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, blackbox4.transform.position.x) && Mathf.Approximately(newPos.y, blackbox4.transform.position.y))
+            return false;
+        if (Mathf.Approximately(newPos.x, blackbox5.transform.position.x) && Mathf.Approximately(newPos.y, blackbox5.transform.position.y))
+            return false;
+
+
+        //out of bounds
+        if (pos.x > 1.5 || pos.x < -1.5 || pos.y > 1.5 || pos.y < -1.5)
+            return false;
+
+        return true;
+    }
+
+
+    public void winCon()
+    {
+        if (transform.position.x != 0 &&
+            blackbox1.transform.position.x != 0 &&
+            blackbox2.transform.position.x != 0 &&
+            blackbox3.transform.position.x != 0 &&
+            blackbox4.transform.position.x != 0 &&
+            blackbox5.transform.position.x != 0)
+        {
+   
+            wincon = true;
+        }
+        else { wincon = false; }
+            
+
     }
 }
+
+
+
