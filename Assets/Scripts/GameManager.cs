@@ -189,7 +189,6 @@ namespace Assets.Scripts
 
         public void LoadNextLevel(float TimePerLevel, int levelIndex)
         {
-
             CurrentLevelIndex = levelIndex;
             timeLeft = TimePerLevel;
             RpcCleanLevel();

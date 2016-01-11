@@ -42,7 +42,7 @@ namespace Assets.Scripts
         }
 
         public override void OnStartLocalPlayer() {
-            NickName = PlayerPrefs.GetString("Nickname", "Anon");
+            NickName = Preferences.Nick;
             chatSpawn = GameObject.Find("Chat Box");
             GameObject.Find("Chat Input Box").GetComponent<ChatInputBox>().player = this;
         }
@@ -96,24 +96,24 @@ namespace Assets.Scripts
 
 
         [Command]
-        public void CmdSendMessage(string msg, GameObject chatSpawn)
+        public void CmdSendMessage(string sender, string msg, GameObject chatSpawn)
         {
             
             GameObject clone = Instantiate(MessagePrefab);
             clone.transform.SetParent(chatSpawn.transform, false);
             clone.transform.SetAsFirstSibling();
-            clone.GetComponent<ChatMessage>().ShowMessage(this, msg);
+            clone.GetComponent<ChatMessage>().ShowMessage(sender, msg);
             NetworkServer.Spawn(clone);
-            RpcSyncOnce(clone, msg, chatSpawn);
+            RpcSyncOnce(clone, sender, msg, chatSpawn);
             
         }
 
         [ClientRpc]
-        public void RpcSyncOnce(GameObject message, string msg, GameObject parent)
+        public void RpcSyncOnce(GameObject message, string sender, string msg, GameObject parent)
         {
             message.transform.SetParent(parent.transform, false);
             message.transform.SetAsFirstSibling();
-            message.GetComponent<ChatMessage>().ShowMessage(this, msg);
+            message.GetComponent<ChatMessage>().ShowMessage(sender, msg);
         }
 
         [ClientRpc]
@@ -143,7 +143,7 @@ namespace Assets.Scripts
         public void SendChatMessage(string msg)
         {
             if (!isLocalPlayer) { return; }
-            CmdSendMessage(msg, chatSpawn);
+            CmdSendMessage(NickName, msg, chatSpawn);
         }
 
         public void Reset()

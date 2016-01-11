@@ -1669,7 +1669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumberText: {fileID: 495894592}
-  NickText: {fileID: 1090492808}
+  NickText: {fileID: 455742526}
+  Settings: {fileID: 0}
 --- !u!1 &1670687156
 GameObject:
   m_ObjectHideFlags: 0

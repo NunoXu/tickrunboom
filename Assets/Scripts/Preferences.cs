@@ -10,27 +10,31 @@ namespace Assets.Scripts
     public class Preferences : MonoBehaviour
     {
 
+        public static string Nick = "Anon";
+        public static int PlayerNumber = 3;
+
         public Text PlayerNumberText;
-        public Text NickText;
+        public InputField NickText;
 
         void Start()
         {
             var playerNumber = int.Parse(PlayerNumberText.text);
             ServerGameManager.playerNumber = playerNumber;
 
-            NickText.text = PlayerPrefs.GetString("Nickname", "Anon");
+            NickText.text = Nick;
 
         }
 
         public void SetPlayerNick(string value)
         {
-            PlayerPrefs.SetString("Nickname", value);
+            Nick = value;
         }
 
 
         public void SetPlayerNumber(string value)
         {
             var playerNumber = int.Parse(value);
+            PlayerNumber = playerNumber;
             ServerGameManager.playerNumber = playerNumber;
         }
     }
