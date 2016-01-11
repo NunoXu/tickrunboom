@@ -21,6 +21,8 @@ namespace Assets.Scripts
         public List<GameObject> PlayerTraits;
         public ChatInputBox ChatInput;
         public PlayContainer PlayContainer;
+        public string CardMinigameScene;
+        public Player ChosenPlayer;
         
         public UIManager UI;
         
@@ -60,7 +62,6 @@ namespace Assets.Scripts
         [SyncVar]
         public int currentPlayers = 0;
 
-
         [SyncVar]
         public int activePlayerId = 0;
 
@@ -71,7 +72,7 @@ namespace Assets.Scripts
             {
                 if (isClient)
                 {
-                    if (allPlayersAssigned())
+                    if (AllPlayersAssigned())
                     {
                         RegisterPlayers();
                         UI.SetVotingFrames();
@@ -157,7 +158,7 @@ namespace Assets.Scripts
                 return null;
         }
 
-        private bool allPlayersAssigned()
+        private bool AllPlayersAssigned()
         {
             if (currentPlayers < playerNumber)
                 return false;
@@ -186,6 +187,7 @@ namespace Assets.Scripts
             }
             return null;
         }
+
 
         public void LoadNextLevel(float TimePerLevel, int levelIndex)
         {
@@ -252,6 +254,43 @@ namespace Assets.Scripts
 
             activePlayerId = id;
         }
+
+        
+        public void DisableVoteFrames()
+        {
+            RpcDisableVoteFrames();
+        }
+
+        [ClientRpc]
+        public void RpcDisableVoteFrames()
+        {
+            UI.LockVoteFrames();
+        }
+
+        public void EnableVoteFrames()
+        {
+            RpcEnableVoteFrames();
+        }
+
+        [ClientRpc]
+        public void RpcEnableVoteFrames()
+        {
+
+            UI.UnlockVoteFrames();
+        }
+
+        public void SetVoteFramesInSelection(int playerId)
+        {
+            RpcSetVoteFramesInSelection(playerId);
+        }
+
+        [ClientRpc]
+        public void RpcSetVoteFramesInSelection(int Playerid)
+        {
+            if (LocalPlayer.id == Playerid)
+                UI.SetVoteFramesInSelection();
+        }
+        
     }
 }
- 
+  

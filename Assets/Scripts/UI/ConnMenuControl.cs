@@ -10,7 +10,6 @@ namespace Assets
 {
     public class ConnMenuControl : MonoBehaviour
     {
-        public Text networkAddress;
 
         public void StartLocalGame()
         {
@@ -19,7 +18,7 @@ namespace Assets
 
         public void JoinLocalGame()
         {
-            NetworkManager.singleton.networkAddress = networkAddress.text;
+            NetworkManager.singleton.networkAddress = "localhost";
             NetworkManager.singleton.StartClient();
         }
             

@@ -13,7 +13,8 @@ namespace Assets.Scripts.UI
         public Text VoteText;
         public Image ButtonImage;
         public float HasVoted;
-
+        public bool Locked;
+        public bool InSelection = false;
 
         private bool Voted = false;
         private Player localPlayer;
@@ -34,8 +35,14 @@ namespace Assets.Scripts.UI
 
         public void UpVote()
         {
-            if (player.Dead || localPlayer.Dead)
+            if (player.Dead || localPlayer.Dead || Locked)
                 return;
+
+            if (InSelection)
+            {
+                localPlayer.SelectPlayer(player.id);
+                Voted = true;
+            }
 
             if (!Voted)
             {
@@ -44,7 +51,6 @@ namespace Assets.Scripts.UI
                     return;
                 }
                     
-
                 localPlayer.CmdUpVote(player.id);
                 Voted = true;
                 localPlayer.Voted = true;
@@ -74,5 +80,16 @@ namespace Assets.Scripts.UI
         {
             Voted = false;
         }
+
+        public void Lock()
+        {
+            Locked = true;
+        }
+
+        public void UnLock()
+        {
+            Locked = false;
+        }
+
     }
 }

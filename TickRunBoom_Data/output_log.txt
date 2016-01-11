@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/TickRunBo
 Mono path[1] = 'C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/TickRunBoom_Data/Mono'
 Mono config path = 'C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/TickRunBoom_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/TickRunBoom_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55093
-Multi-casting "[IP] 192.168.1.67 [Port] 55093 [Flags] 2 [Guid] 209923321 [EditorId] 1297176755 [Version] 1048832 [Id] WindowsPlayer(Xu-Acer) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.67:55093]
+PlayerConnection initialized network socket : 0.0.0.0 55357
+Multi-casting "[IP] 192.168.1.67 [Port] 55357 [Flags] 2 [Guid] 1756050911 [EditorId] 1297176755 [Version] 1048832 [Id] WindowsPlayer(Xu-Acer) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.67:55357]
 Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -22,91 +22,57 @@ Loading C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\TickRunBoom_Data\
 Platform assembly: C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\TickRunBoom_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\TickRunBoom_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\TickRunBoom_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.158 seconds
+- Completed reload, in  0.194 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\TickRunBoom_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2654 -> priority: 1 
+  Thread -> id: 1998 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 10.530137 ms
+UnloadTime: 20.112164 ms
+System memory in use before: 23.3 MB.
+System memory in use after: 23.3 MB.
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 872.
+Total: 2.184887 ms (FindLiveObjects: 0.263435 ms CreateObjectMapping: 0.088524 ms MarkObjects: 1.767068 ms  DeleteObjects: 0.060299 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.376465 ms
+Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkManager:Awake() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:157)
+ 
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkManager.cs Line: 157)
+
+System memory in use before: 24.0 MB.
+System memory in use after: 23.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 384.
+Total: 1.192300 ms (FindLiveObjects: 0.023093 ms CreateObjectMapping: 0.012401 ms MarkObjects: 1.087953 ms  DeleteObjects: 0.067141 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.123732 ms
+System memory in use before: 23.5 MB.
+System memory in use after: 23.5 MB.
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 872.
+Total: 0.873698 ms (FindLiveObjects: 0.050463 ms CreateObjectMapping: 0.014112 ms MarkObjects: 0.800996 ms  DeleteObjects: 0.006842 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.076690 ms
+Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkManager:Awake() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:157)
+ 
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkManager.cs Line: 157)
+
 System memory in use before: 23.2 MB.
 System memory in use after: 23.2 MB.
 
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 872.
-Total: 1.997574 ms (FindLiveObjects: 0.123592 ms CreateObjectMapping: 0.032501 ms MarkObjects: 1.804702 ms  DeleteObjects: 0.034212 ms)
-
-Assigned Mechanic (UnityEngine.GameObject)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Assets.Scripts.Player:RpcReceiveTrait(GameObject, Int32) (at C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\Assets\Scripts\Player.cs:129)
-Assets.Scripts.Player:InvokeRpcRpcReceiveTrait(NetworkBehaviour, NetworkReader)
-UnityEngine.Networking.NetworkBehaviour:InvokeRpcDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:332)
-UnityEngine.Networking.NetworkBehaviour:InvokeRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:113)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:533)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:632)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:199)
-UnityEngine.Networking.LocalClient:ProcessInternalMessages() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:137)
-UnityEngine.Networking.LocalClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:65)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:774)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:916)
- 
-(Filename: C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/Assets/Scripts/Player.cs Line: 129)
-
-Assigned Kid (UnityEngine.GameObject)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Assets.Scripts.Player:RpcReceiveTrait(GameObject, Int32) (at C:\Users\nunox_000\Work\IST\DJ\TickRunBoom\TickRunBoom\Assets\Scripts\Player.cs:129)
-Assets.Scripts.Player:InvokeRpcRpcReceiveTrait(NetworkBehaviour, NetworkReader)
-UnityEngine.Networking.NetworkBehaviour:InvokeRpcDelegate(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:332)
-UnityEngine.Networking.NetworkBehaviour:InvokeRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkBehaviour.cs:113)
-UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:533)
-UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:632)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:199)
-UnityEngine.Networking.LocalClient:ProcessInternalMessages() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:137)
-UnityEngine.Networking.LocalClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:65)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:774)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:916)
- 
-(Filename: C:/Users/nunox_000/Work/IST/DJ/TickRunBoom/TickRunBoom/Assets/Scripts/Player.cs Line: 129)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 7.134132 ms
-Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkManager:Awake() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:157)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkManager.cs Line: 157)
-
-System memory in use before: 28.0 MB.
-System memory in use after: 27.1 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 386.
-Total: 1.256021 ms (FindLiveObjects: 0.056878 ms CreateObjectMapping: 0.014540 ms MarkObjects: 1.135850 ms  DeleteObjects: 0.045759 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.400708 ms
-System memory in use before: 27.4 MB.
-System memory in use after: 27.4 MB.
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 872.
-Total: 2.998713 ms (FindLiveObjects: 0.081254 ms CreateObjectMapping: 0.035495 ms MarkObjects: 2.865285 ms  DeleteObjects: 0.014112 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.039484 ms
-Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object)
-UnityEngine.Networking.NetworkManager:Awake() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:157)
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkManager.cs Line: 157)
-
-System memory in use before: 27.2 MB.
-System memory in use after: 27.2 MB.
-
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 384.
-Total: 3.006411 ms (FindLiveObjects: 0.028652 ms CreateObjectMapping: 0.011974 ms MarkObjects: 2.745114 ms  DeleteObjects: 0.217248 ms)
+Total: 1.616534 ms (FindLiveObjects: 0.136849 ms CreateObjectMapping: 0.053029 ms MarkObjects: 1.387311 ms  DeleteObjects: 0.030791 ms)
 

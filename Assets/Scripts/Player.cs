@@ -83,18 +83,6 @@ namespace Assets.Scripts
         }
 
 
-        public void RotatePipe(GameObject pipe)
-        {
-            CmdRotatePipe(pipe);
-        }
-
-        [Command]
-        public void CmdRotatePipe(GameObject pipe)
-        {
-            pipe.GetComponent<PipeScript>().Rotate();
-        }
-
-
         [Command]
         public void CmdSendMessage(string sender, string senderTrait, string msg, GameObject chatSpawn)
         {
@@ -149,6 +137,17 @@ namespace Assets.Scripts
         public void Reset()
         {
             Votes = 0;
+        }
+        
+        public void SelectPlayer(int playerId)
+        {
+            CmdSelectPlayer(playerId);
+        }
+
+        [Command]
+        public void CmdSelectPlayer (int playerId)
+        {
+            gameManager.ChosenPlayer = gameManager.Players[playerId];
         }
     }
 }

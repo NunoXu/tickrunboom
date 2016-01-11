@@ -81,5 +81,32 @@ namespace Assets.Scripts
         {
             minigame.transform.SetParent(MinigamePanel.transform);
         }
+
+        public void LockVoteFrames()
+        {
+            LocalPlayerVotePanel.GetComponent<VoteFrame>().Lock();
+            foreach (VoteFrame vf in votingFrames)
+            {
+                vf.Lock();
+            }
+        }
+
+        public void UnlockVoteFrames()
+        {
+            LocalPlayerVotePanel.GetComponent<VoteFrame>().UnLock();
+            foreach (VoteFrame vf in votingFrames)
+            {
+                vf.UnLock();
+            }
+        }
+
+        public void SetVoteFramesInSelection()
+        {
+            LocalPlayerVotePanel.GetComponent<VoteFrame>();
+            foreach (VoteFrame vf in votingFrames)
+            {
+                vf.InSelection = true;
+            }
+        }
     }
 }

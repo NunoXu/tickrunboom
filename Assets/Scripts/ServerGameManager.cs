@@ -15,9 +15,12 @@ namespace Assets.Scripts
         public List<Player> Players = new List<Player>();
         public List<GameObject> PlayerTraits;
         public GameManager GameManager;
-        public float TimePerLevel = 10f;
-        private const float TIME_PER_MINIGAME = 15f;
+        public float TimePerLevel = 60f;
+        private const float TIME_PER_MINIGAME = 30f;
+        private const float TIME_PER_WAIT= 5f;
         public string DemoEndScene;
+        private bool WaitTime = false;
+        private bool BeginTime = true;
 
         public static int playerNumber;
         public int currentPlayers = 0;
@@ -29,6 +32,10 @@ namespace Assets.Scripts
         public int currentLevel = 0;
         private int[] levelOrder;
         private int currentLevelInOrder = 0;
+        private bool HardLevel = false;
+        private bool JokerLevel = false;
+        private Player ChosenPlayer;
+
 
         private bool GameOver = false;
 
@@ -38,8 +45,6 @@ namespace Assets.Scripts
             var levelenum = Enumerable.Range(0, GameManager.Levels.Count);
             levelOrder = levelenum.OrderBy(x => UnityEngine.Random.value).ToArray();
             
-            currentLevel = GetNextLevel();
-            GameManager.LoadNextLevel(TimePerLevel, currentLevel);
         }
         
 
@@ -81,47 +86,95 @@ namespace Assets.Scripts
             if (GameOver)
                 return;
 
+
             if (GameManager.timeLeft <= 0)
             {
+                if (BeginTime)
+                {
+                    BeginTime = false;
+                    GameManager.timeLeft = TimePerLevel;
+                    return;
+                }
+
                 if (!MinigameTime)
                 {
-                    MinigamePlayer = GetChosenPlayer();
-                    GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
-                    if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
-                        LoadMinigame(GameManager.CurrentLevel.EasyMiniGamScene);
-                    else
-                        LoadMinigame(GameManager.CurrentLevel.HardMiniGameScene);
-                    GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
-                    GameManager.timeLeft = TIME_PER_MINIGAME;
-                    MinigameTime = true;
+
+                    if (!WaitTime)
+                    {
+                        MinigamePlayer = GetChosenPlayer();
+                        GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
+                        WaitTime = true;
+                        GameManager.timeLeft = TIME_PER_WAIT;
+                        return;
+                    }
+                    if (WaitTime)
+                    {
+                        LaunchMiniGame();
+                        WaitTime = false;
+                    }
                 } else
                 {
-                    MinigamePlayer.Dead = true;
-                    GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " didn't make it in time.", Color.red);
-                    CleanMinigame();
-                    MinigameTime = false;
-                    ResetLevel();
+                    PlayerOutOfTime();
                 }
             }
+           
 
             if(MinigameTime && CurrentMinigame && CurrentMinigame.IsWon())
             {
                 GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " has won the challenge!.", Color.red);
                 CleanMinigame();
-                MinigameTime = false;
+                
                 ResetLevel();
+                MinigameTime = false;
             }
         }
+
+        void LaunchCardGame()
+        {
+
+           //TODO
+
+        }
+
+        void LaunchMiniGame()
+        {
+            GameManager.DisableVoteFrames();
+            if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
+            {
+                LoadMinigame(GameManager.CurrentLevel.EasyMiniGamScene);
+                HardLevel = false;
+            }
+            else
+            {
+                LoadMinigame(GameManager.CurrentLevel.HardMiniGameScene);
+                HardLevel = true;
+            }
+            GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
+            GameManager.timeLeft = TIME_PER_MINIGAME;
+            MinigameTime = true;
+        }
+
+        void PlayerOutOfTime()
+        {
+            MinigamePlayer.Dead = true;
+            GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " didn't make it in time.", Color.red);
+            CleanMinigame();
+            MinigameTime = false;
+            ResetLevel();
+        }
+
+
 
         void ResetLevel()
         {
             if (currentLevelInOrder >= levelOrder.Length)
-            {
+            { 
                 //DemoOver
                 GameOver = true;
                 GameManager.UI.RpcGameOver();
                 return;
             }
+            GameManager.EnableVoteFrames();
             var level = GetNextLevel();
             GameManager.LoadNextLevel(TimePerLevel, level);
             foreach (Player p in Players)
@@ -175,7 +228,6 @@ namespace Assets.Scripts
             GameManager.SetMiniGamePlayer(chosenPlayerId);
 
         }
-
         
     }
 }
