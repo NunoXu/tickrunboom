@@ -44,7 +44,7 @@ namespace Assets.Scripts
         }
 
         public override void OnStartLocalPlayer() {
-            NickName = Preferences.Nick;
+            CmdPublishNickName(Preferences.Nick);
             chatSpawn = GameObject.Find("Chat Box");
             GameObject.Find("Chat Input Box").GetComponent<ChatInputBox>().player = this;
         }
@@ -60,6 +60,11 @@ namespace Assets.Scripts
 
         public Trait trait;
 
+        [Command]
+        public void CmdPublishNickName(string nick)
+        {
+            NickName = nick;
+        }
         
         [Command]
         public void CmdUpVote(int votedPlayerId)
@@ -84,6 +89,12 @@ namespace Assets.Scripts
             CmdPlayMinigame(playObj);
         }
 
+
+        
+        public void SendMessage(string sender, string msg, GameObject chatSpawn)
+        {
+            CmdSendMessage(sender, "", msg, chatSpawn);
+        }
 
         [Command]
         public void CmdSendMessage(string sender, string senderTrait, string msg, GameObject chatSpawn)
@@ -133,7 +144,10 @@ namespace Assets.Scripts
         public void SendChatMessage(string msg)
         {
             if (!isLocalPlayer) { return; }
-            CmdSendMessage(NickName, trait.Name, msg, chatSpawn);
+            if (trait != null)
+                CmdSendMessage(NickName, trait.Name, msg, chatSpawn);
+            else
+                SendMessage(NickName, msg, chatSpawn);
         }
 
         public void Reset()
