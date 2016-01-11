@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Chat;
+using Assets.Scripts.Rooms;
+using Assets.Scripts.Rooms.MedicMiniGame;
 using Assets.Scripts.Traits;
 using System;
 using System.Collections.Generic;
@@ -69,17 +71,17 @@ namespace Assets.Scripts
             gameManager.GetPlayerById(votedPlayerId).Votes--;
         }
 
-        public void FlipCard(GameObject card)
+        [Command]
+        public void CmdPlayMinigame(PlayContainer playObj)
         {
-            CmdFlipCard(card);
+            gameManager.PerformPlay(playObj);
+        }
+        
+        public void PlayMinigame (PlayContainer playObj)
+        {
+            CmdPlayMinigame(playObj);
         }
 
-        [Command]
-        public void CmdFlipCard(GameObject card)
-        {
-            card.GetComponent<cardScript>().Flip();
-            card.GetComponent<cardScript>().FlipAdjacent();
-        }
 
         public void RotatePipe(GameObject pipe)
         {
@@ -132,8 +134,6 @@ namespace Assets.Scripts
         }
 
 
-
-
         public Sprite GetTraitImage()
         {
             return trait.TraitIcon;
@@ -144,7 +144,6 @@ namespace Assets.Scripts
         {
             if (!isLocalPlayer) { return; }
             CmdSendMessage(msg, chatSpawn);
-
         }
 
         public void Reset()

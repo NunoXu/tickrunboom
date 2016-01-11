@@ -36,40 +36,5 @@ namespace Assets.Scripts
             (GameObject.Find("Button_19").transform.rotation.eulerAngles.z == 0);
         }
 
-        [ClientRpc]
-        public override void RpcActivate()
-        {
-            Background.enabled = true;
-            foreach (Image img in pieces.GetComponentsInChildren<Image>())
-            {
-                img.enabled = true;
-            }
-            foreach (Button btn in pieces.GetComponentsInChildren<Button>())
-            {
-                btn.enabled = true;
-            }
-            foreach (Text txt in pieces.GetComponentsInChildren<Text>())
-            {
-                txt.enabled = true;
-            }
-        }
-
-        [ClientRpc]
-        public override void RpcDeactivate()
-        {
-            Background.enabled = false;
-            foreach (Image img in pieces.GetComponentsInChildren<Image>())
-            {
-                img.enabled = false;
-            }
-            foreach (Button btn in pieces.GetComponentsInChildren<Button>())
-            {
-                btn.enabled = false;
-            }
-            foreach (Text txt in pieces.GetComponentsInChildren<Text>())
-            {
-                txt.enabled = false;
-            }
-        }
     }
 }

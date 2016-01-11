@@ -9,11 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/MainScreen.unity
-  - enabled: 0
-    path: Assets/Scenes/DemoEnd.unity
-  - enabled: 0
-    path: Assets/Scenes/BoxMiniGame.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/medicGame.unity
-  - enabled: 0
-    path: Assets/Scenes/pipeGame.unity

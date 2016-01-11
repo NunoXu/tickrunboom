@@ -21,6 +21,8 @@ namespace Assets.Scripts
         public GameObject MinigamePanel;
         public GameObject PuzzlePanel;
 
+        public GameObject Canvas;
+
 
         public Text LevelText;
         public Image LevelBackground;
@@ -74,6 +76,11 @@ namespace Assets.Scripts
         public void RpcGameOver()
         {
             GameOverPanel.SetActive(true);
+        }
+
+        public void SetMiniGameOnCanvas(GameObject minigame)
+        {
+            minigame.transform.SetParent(MinigamePanel.transform);
         }
     }
 }

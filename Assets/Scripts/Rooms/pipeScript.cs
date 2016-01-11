@@ -11,8 +11,6 @@ public class pipeScript : NetworkBehaviour {
 
     public void CallCmdRotate()
     {
-        if (pgm.activePlayerId != gm.LocalPlayer.id)
-            return;
 
         gm.LocalPlayer.RotatePipe(this.gameObject);
     }

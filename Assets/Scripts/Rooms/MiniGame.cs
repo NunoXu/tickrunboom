@@ -7,18 +7,54 @@ using UnityEngine.Networking;
 
 namespace Assets.Scripts.Rooms
 {
-    public abstract class MiniGame : NetworkBehaviour
+    public abstract class MiniGame : MonoBehaviour
     {
-        [SyncVar]
-        public int activePlayerId;
+        
+        public GameManager gameManager;
+
+        protected Play[] plays;
 
         public abstract bool IsWon();
+        public virtual void PerformPlay(PlayContainer play)
+        {
+            plays[play.playId].PerformPlay(this, play);
+        }
+         
 
-        [ClientRpc]
-        public abstract void RpcActivate();
+        public virtual void SendPlay(PlayContainer play)
+        {
+            if (!gameManager)
+            {
+                plays[play.playId].PerformPlay(this, play);
+                return;
+            }
 
-        [ClientRpc]
-        public abstract void RpcDeactivate();
+           
+            gameManager.SendPlay(play);
+        }
+        
+
+        void Start ()
+        {
+            Initialize();
+        }
+
+        protected virtual void Initialize()
+        {
+            GameObject gmObj = GameObject.FindGameObjectWithTag("GameManager");
+            if (gmObj)
+            {
+                gameManager = gmObj.GetComponent<GameManager>();
+                gameManager.RegisterMiniGame(this);
+            }
+
+            GameObject serverGmObj = GameObject.FindGameObjectWithTag("ServerGameManager");
+            if (serverGmObj)
+            {
+                serverGmObj.GetComponent<ServerGameManager>().RegisterMiniGame(this);
+                gameManager.RegisterMiniGame(this);
+            }
+        }
 
 
     }

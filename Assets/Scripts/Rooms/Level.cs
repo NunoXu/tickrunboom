@@ -12,8 +12,8 @@ namespace Assets.Scripts.Rooms
     {
         public TextAsset LevelText;
         public Sprite LevelBackground;
-        public GameObject EasyMiniGame;
-        public GameObject HardMiniGame;
+        public string EasyMiniGamScene;
+        public string HardMiniGameScene;
         public Trait SolvingTrait;
         
     }

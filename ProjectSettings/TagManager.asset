@@ -11,6 +11,7 @@ TagManager:
   - PlayerVotingFrame
   - ServerGameManager
   - Pipe
+  - MiniGame
   layers:
   - Default
   - TransparentFX

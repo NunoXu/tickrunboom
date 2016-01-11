@@ -20,6 +20,7 @@ namespace Assets.Scripts
         public List<Level> Levels;
         public List<GameObject> PlayerTraits;
         public ChatInputBox ChatInput;
+        public PlayContainer PlayContainer;
         
         public UIManager UI;
         
@@ -58,8 +59,12 @@ namespace Assets.Scripts
 
         [SyncVar]
         public int currentPlayers = 0;
-       
-        
+
+
+        [SyncVar]
+        public int activePlayerId = 0;
+
+
         void Update()
         {
             if (loading)
@@ -75,6 +80,29 @@ namespace Assets.Scripts
                 }
             }
             DecreaseTimer();
+        }
+
+        public void SendPlay(PlayContainer play)
+        {
+            if (activePlayerId == LocalPlayer.id)
+            {
+                LocalPlayer.PlayMinigame(play);
+            }
+        }
+
+        public void PerformPlay(PlayContainer playObj)
+        {
+            if (!isClient)
+                return;
+
+
+            RpcPerformPlay(playObj);
+        }
+
+        [ClientRpc]
+        private void RpcPerformPlay (PlayContainer playObj)
+        {
+            CurrentMiniGame.PerformPlay(playObj);
         }
 
         private void DecreaseTimer()
@@ -166,7 +194,56 @@ namespace Assets.Scripts
             UI.SetLevelBackground(true);
             UI.RpcResetVotingFrames();
         }
-        
+
+        public void SendLoadMiniGame(string minigameScene)
+        {
+            if (!isServer)
+                return;
+
+            RpcLoadMiniGame(minigameScene);
+        }
+
+        [ClientRpc]
+        public void RpcLoadMiniGame(string minigameScene)
+        {
+            UI.SetLevelBackground(false);
+            Application.LoadLevelAdditive(minigameScene);
+        }
+
+        public void CleanMiniGame()
+        {
+            if (!isServer)
+                return;
+
+            RpcCleanMiniGame();
+        }
+
+        [ClientRpc]
+        public void RpcCleanMiniGame()
+        {
+            Destroy(CurrentMiniGame.gameObject);
+            CurrentMiniGame = null;
+        }
+
+        public void RegisterMiniGame(MiniGame miniGame)
+        {
+            CurrentMiniGame = miniGame;
+            UI.SetMiniGameOnCanvas(miniGame.gameObject);
+        }
+
+        public void SetMiniGamePlayer(int id)
+        {
+            RpcSetMiniGamePlayer(id);
+        }
+
+        [ClientRpc]
+        public void RpcSetMiniGamePlayer(int id)
+        {
+            if (!isClient)
+                return;
+
+            activePlayerId = id;
+        }
     }
 }
  

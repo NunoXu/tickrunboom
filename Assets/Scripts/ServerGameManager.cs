@@ -87,9 +87,9 @@ namespace Assets.Scripts
                     MinigamePlayer = GetChosenPlayer();
                     GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " was chosen.", Color.red);
                     if (MinigamePlayer.trait == GameManager.CurrentLevel.SolvingTrait)
-                        LoadMinigame(GameManager.CurrentLevel.EasyMiniGame, MinigamePlayer);
+                        LoadMinigame(GameManager.CurrentLevel.EasyMiniGamScene);
                     else
-                        LoadMinigame(GameManager.CurrentLevel.HardMiniGame, MinigamePlayer);
+                        LoadMinigame(GameManager.CurrentLevel.HardMiniGameScene);
                     GameManager.ChatInput.SendSpecificMessage("You have got " + TIME_PER_MINIGAME + " seconds.", Color.red);
                     GameManager.timeLeft = TIME_PER_MINIGAME;
                     MinigameTime = true;
@@ -103,7 +103,7 @@ namespace Assets.Scripts
                 }
             }
 
-            if(MinigameTime && CurrentMinigame.IsWon())
+            if(MinigameTime && CurrentMinigame && CurrentMinigame.IsWon())
             {
                 GameManager.ChatInput.SendSpecificMessage("Player " + MinigamePlayer.NickName + " has won the challenge!.", Color.red);
                 CleanMinigame();
@@ -131,7 +131,8 @@ namespace Assets.Scripts
 
         void CleanMinigame()
         {
-            CurrentMinigame.RpcDeactivate();
+            GameManager.CleanMiniGame();
+            CurrentMinigame = null;
         }
 
         public int GetNextLevel()
@@ -156,14 +157,23 @@ namespace Assets.Scripts
             return chosenPlayer;
         }
 
-        private void LoadMinigame(GameObject minigame, Player activePlayer)
+        private void LoadMinigame(string minigame)
         {
-            GameManager.UI.SetLevelBackground(false);
-            CurrentMinigame = minigame.GetComponent<MiniGame>();
-            CurrentMinigame.activePlayerId = activePlayer.id;
-            CurrentMinigame.RpcActivate();
+            GameManager.SendLoadMiniGame(minigame);
+
         }
-        
+
+        public void RegisterMiniGame(MiniGame miniGame)
+        {
+            if (!isServer)
+                return;
+
+            var chosenPlayerId = GetChosenPlayer().id;
+            CurrentMinigame = miniGame;
+
+            GameManager.SetMiniGamePlayer(chosenPlayerId);
+
+        }
 
     }
 }
