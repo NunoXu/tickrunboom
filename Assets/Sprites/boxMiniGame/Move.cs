@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Move : MonoBehaviour {
 
-    string flagPos = "stop";
+    public string flagPos = "stop";
     Vector3 newPos;
     // Use this for initialization
 
@@ -27,9 +27,10 @@ public class Move : MonoBehaviour {
     public GameObject blackbox5;
     // public GameObject blackbox6;
 
-    public static bool wincon;
+    public bool wincon;
     public Text text;
     public ParticleSystem part;
+    static int canCheck;
 
 
     void Start () {
@@ -40,17 +41,7 @@ public class Move : MonoBehaviour {
     void Update()
     {
         winCon();
-        if (wincon == true)
-        {
-            if (text != null)
-                text.text = "SUCCESS!";
-            if (part != null)
-                part.enableEmission = true;
-                    
-        }
-        else { 
-
-            GameObject g = GetComponent<GameObject>();
+        GameObject g = GetComponent<GameObject>();
 
 
 
@@ -63,8 +54,9 @@ public class Move : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.DownArrow))
             flagPos = "down";
 
-        if(flagPos != "stop")
+        if(flagPos != "stop" && text.GetComponent<boxWinCon>().winner == false)
         {
+        
             newPos = transform.position + new Vector3((float)0.75, 0, 0);
             switch (flagPos)
             {
@@ -89,11 +81,14 @@ public class Move : MonoBehaviour {
                         transform.position = newPos;
                     break;
             }
-            if(colisao(newPos) && transform.position == newPos)
+            if (colisao(newPos) && transform.position == newPos)
+            {
+                winCon();
                 flagPos = "stop";
-        }
-        }
+            }              
+            }       
     }
+
 
     public bool colisao(Vector3 pos)
     {
@@ -133,10 +128,6 @@ public class Move : MonoBehaviour {
             return false;
         if (Mathf.Approximately(newPos.x, blackbox5.transform.position.x) && Mathf.Approximately(newPos.y, blackbox5.transform.position.y))
             return false;
-        
-
-
-
 
 
         //out of bounds
@@ -156,9 +147,10 @@ public class Move : MonoBehaviour {
             blackbox4.transform.position.x != 0 &&
             blackbox5.transform.position.x != 0)
         {
-           
+   
             wincon = true;
         }
+        else { wincon = false; }
             
 
     }
