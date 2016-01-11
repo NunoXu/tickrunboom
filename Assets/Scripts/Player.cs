@@ -51,8 +51,7 @@ namespace Assets.Scripts
 
         [SyncVar]
         public bool Dead = false;
-
-        [SyncVar]
+        
         public bool Voted = false;
 
 
@@ -149,7 +148,6 @@ namespace Assets.Scripts
         public void Reset()
         {
             Votes = 0;
-            Voted = false;
         }
     }
 }

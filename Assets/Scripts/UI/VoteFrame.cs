@@ -40,7 +40,10 @@ namespace Assets.Scripts.UI
             if (!Voted)
             {
                 if (localPlayer.Voted)
+                {
                     return;
+                }
+                    
 
                 localPlayer.CmdUpVote(player.id);
                 Voted = true;

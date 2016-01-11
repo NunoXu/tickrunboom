@@ -1019,7 +1019,7 @@ MonoBehaviour:
   - {fileID: 1646680798}
   - {fileID: 694849422}
   GameManager: {fileID: 1498357448}
-  TimePerLevel: 5
+  TimePerLevel: 20
   DemoEndScene: DemoEnd
   currentPlayers: 0
   currentLevel: 0
@@ -3297,6 +3297,8 @@ MonoBehaviour:
   TraitIcons: {fileID: 0}
   networkManager: {fileID: 0}
   Levels:
+  - {fileID: 1276906539}
+  - {fileID: 1276906539}
   - {fileID: 1276906539}
   PlayerTraits:
   - {fileID: 804501734}

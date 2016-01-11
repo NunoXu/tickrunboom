@@ -56,9 +56,8 @@ namespace Assets.Scripts
             LevelText.text = GM.Levels[GM.CurrentLevelIndex].LevelText.text;
             LevelBackground.sprite = GM.Levels[GM.CurrentLevelIndex].LevelBackground;
         }
-
-        [ClientRpc]
-        public void RpcResetVotingFrames()
+        
+        public void ResetVotingFrames()
         {
             LocalPlayerVotePanel.GetComponent<VoteFrame>().Reset();
             foreach (VoteFrame vf in votingFrames)
@@ -66,7 +65,7 @@ namespace Assets.Scripts
                 vf.Reset();
             }
         }
-
+        
         public void SetLevelBackground(bool enabled)
         {
             LevelBackground.enabled = enabled;
