@@ -11,6 +11,7 @@ namespace Assets.Scripts
 {
     public class ServerGameManager : NetworkBehaviour
     {
+
         public List<Player> Players = new List<Player>();
         public List<GameObject> PlayerTraits;
         public GameManager GameManager;
@@ -175,5 +176,6 @@ namespace Assets.Scripts
 
         }
 
+        
     }
 }

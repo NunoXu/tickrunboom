@@ -189,8 +189,6 @@ namespace Assets.Scripts
 
         public void LoadNextLevel(float TimePerLevel, int levelIndex)
         {
-            if (!isServer)
-                return;
 
             CurrentLevelIndex = levelIndex;
             timeLeft = TimePerLevel;

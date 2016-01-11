@@ -2305,6 +2305,7 @@ Transform:
   - {fileID: 1139938578}
   - {fileID: 381406371}
   - {fileID: 1276906538}
+  - {fileID: 1575617562}
   m_Father: {fileID: 1498357449}
   m_RootOrder: 0
 --- !u!1 &1225149426
@@ -3307,8 +3308,9 @@ MonoBehaviour:
   TraitIcons: {fileID: 0}
   networkManager: {fileID: 0}
   Levels:
-  - {fileID: 1276906539}
+  - {fileID: 1575617563}
   - {fileID: 381406370}
+  - {fileID: 1276906539}
   PlayerTraits:
   - {fileID: 804501734}
   - {fileID: 2051015920}
@@ -3509,6 +3511,50 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1503883912}
+--- !u!1 &1575617561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1575617562}
+  - 114: {fileID: 1575617563}
+  m_Layer: 0
+  m_Name: Child Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1575617562
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575617561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1218947428}
+  m_RootOrder: 3
+--- !u!114 &1575617563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575617561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b48a99e04acc0146b4d005d1299118d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelText: {fileID: 4900000, guid: 77163378089432243b658f3da07a6aa0, type: 3}
+  LevelBackground: {fileID: 0}
+  EasyMiniGamScene: childGame
+  HardMiniGameScene: childGameHard
+  SolvingTrait: {fileID: 296172258}
 --- !u!1 &1605627399
 GameObject:
   m_ObjectHideFlags: 0
