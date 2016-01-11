@@ -7,21 +7,25 @@ using UnityEngine.Networking;
 
 namespace Assets.Scripts.Rooms.PipeMiniGame
 {
-    public class pipeScript : NetworkBehaviour
+    public class PipeScript : MonoBehaviour
     {
+        public int id;
         public GameManager gm;
         public PipeMiniGameManager pgm;
+
 
         public void CallCmdRotate()
         {
 
-            gm.LocalPlayer.RotatePipe(this.gameObject);
+            PlayContainer pc = new PlayContainer();
+
+            pc.pieceId = this.id;
+            pc.playId = 0;
+
+            pgm.SendPlay(pc);
         }
 
-
-
-        [ClientRpc]
-        public void RpcRotate()
+        public void Rotate()
         {
             transform.Rotate(0, 0, 90);
         }

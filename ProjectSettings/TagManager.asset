@@ -12,6 +12,7 @@ TagManager:
   - ServerGameManager
   - Pipe
   - MiniGame
+  - MiniGameContainer
   layers:
   - Default
   - TransparentFX

@@ -10,30 +10,27 @@ namespace Assets.Scripts.Rooms.PipeMiniGame
     public class PipeMiniGameManager : MiniGame
     {
 
-        public GameObject pieces;
+        public GameObject Pieces;
         public Image Background;
-        
+        public PipeScript[] Pipes;
+        public PipeWinCondition PipeWinCondition;
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            plays = new Play[] { new PipeRotatePlay() };
+            int i = 0;
+
+            Pipes = Pieces.GetComponentsInChildren<PipeScript>();
+            foreach (PipeScript pipe in Pipes)
+            {
+                pipe.id = i++;
+            }
+        }
+
         public override bool IsWon()
         {
-            
-            return (GameObject.Find("Button_12").transform.rotation.eulerAngles.z == 0 || GameObject.Find("Button_12").transform.rotation.eulerAngles.z == 180) &&
-            (GameObject.Find("Button_13").transform.rotation.eulerAngles.z == 0) &&
-            ((GameObject.Find("Button_10").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_10").transform.rotation.eulerAngles.z < 91)) &&
-            (GameObject.Find("Button_9").transform.rotation.eulerAngles.z == 270) &&
-            ((GameObject.Find("Button_6").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_6").transform.rotation.eulerAngles.z < 91) || GameObject.Find("Button_6").transform.rotation.eulerAngles.z == 270) &&
-            ((GameObject.Find("Button_7").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_7").transform.rotation.eulerAngles.z < 91) || GameObject.Find("Button_7").transform.rotation.eulerAngles.z == 270) &&
-            (GameObject.Find("Button_8").transform.rotation.eulerAngles.z == 180) &&
-            ((GameObject.Find("Button_1").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_11").transform.rotation.eulerAngles.z < 91)) &&
-            ((GameObject.Find("Button_p").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_p").transform.rotation.eulerAngles.z < 91) || GameObject.Find("Button_p").transform.rotation.eulerAngles.z == 270) &&
-            (GameObject.Find("Button_2").transform.rotation.eulerAngles.z == 270) &&
-            (GameObject.Find("Button_3").transform.rotation.eulerAngles.z == 0) &&
-            ((GameObject.Find("Button_4").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_4").transform.rotation.eulerAngles.z < 91) || GameObject.Find("Button_4").transform.rotation.eulerAngles.z == 270) &&
-            ((GameObject.Find("Button_5").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_5").transform.rotation.eulerAngles.z < 91) || GameObject.Find("Button_5").transform.rotation.eulerAngles.z == 270) &&
-            ((GameObject.Find("Button_17").transform.rotation.eulerAngles.z > 89) && (GameObject.Find("Button_17").transform.rotation.eulerAngles.z < 91)) &&
-            (GameObject.Find("Button_16").transform.rotation.eulerAngles.z == 0 || GameObject.Find("Button_16").transform.rotation.eulerAngles.z == 180) &&
-            (GameObject.Find("Button_15").transform.rotation.eulerAngles.z == 270) &&
-            (GameObject.Find("Button_18").transform.rotation.eulerAngles.z == 180) &&
-            (GameObject.Find("Button_19").transform.rotation.eulerAngles.z == 0);
+            return PipeWinCondition.IsWon();
         }
 
     }

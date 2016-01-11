@@ -91,7 +91,7 @@ namespace Assets.Scripts
         [Command]
         public void CmdRotatePipe(GameObject pipe)
         {
-            pipe.GetComponent<pipeScript>().RpcRotate();
+            pipe.GetComponent<PipeScript>().Rotate();
         }
 
 

@@ -964,7 +964,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: HardMiniGameScene
-      value: pipeGame
+      value: pipeGameHard
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: EasyMiniGame
@@ -974,9 +974,19 @@ Prefab:
       propertyPath: HardMiniGame
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
+      propertyPath: EasyMiniGamScene
+      value: pipeGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fee69f19c39aefa42a260221739f6881, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &381406370 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881,
+    type: 2}
+  m_PrefabInternal: {fileID: 381406369}
+  m_Script: {fileID: 11500000, guid: 5b48a99e04acc0146b4d005d1299118d, type: 3}
 --- !u!4 &381406371 stripped
 Transform:
   m_PrefabParentObject: {fileID: 405326, guid: fee69f19c39aefa42a260221739f6881, type: 2}
@@ -2468,7 +2478,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: HardMiniGameScene
-      value: medicGame Hard
+      value: medicGameHard
       objectReference: {fileID: 0}
     - target: {fileID: 11411524, guid: fee69f19c39aefa42a260221739f6881, type: 2}
       propertyPath: EasyMiniGame
@@ -3298,8 +3308,7 @@ MonoBehaviour:
   networkManager: {fileID: 0}
   Levels:
   - {fileID: 1276906539}
-  - {fileID: 1276906539}
-  - {fileID: 1276906539}
+  - {fileID: 381406370}
   PlayerTraits:
   - {fileID: 804501734}
   - {fileID: 2051015920}

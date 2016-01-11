@@ -232,6 +232,7 @@ namespace Assets.Scripts
         public void RpcCleanMiniGame()
         {
             Destroy(CurrentMiniGame.gameObject);
+            Destroy(GameObject.FindGameObjectWithTag("MiniGameContainer"));
             CurrentMiniGame = null;
         }
 
