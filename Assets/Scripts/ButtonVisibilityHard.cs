@@ -8,46 +8,59 @@ public class ButtonVisibilityHard: MonoBehaviour
   
     public Button myBtn;
     public Button myBtn2;
+    public Text myScore;
     float found;
     public Sprite sprite1;
     public Sprite sprite2;
     bool isWon;
-   static int toWinHard;
+    static int toWin;
+    int score;
 
     // Use this for initialization
     void Start()
     {
         found = 0;
-        toWinHard = 5;
+        toWin = 5;
         isWon = false;
+        score = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Button b = GetComponent<Button>();
+        
+        if(myScore != null )
+        {
+            if(toWin > 0)
+                 myScore.text = ("Differences Found: " + (5 - toWin)).ToString();
+            else
+                myScore.text = ("Task Complete!").ToString();
 
-        if (toWinHard < 0)
+        }
+           
+
+
+        if(myBtn != null && myBtn2 != null) { 
+       // Button b = GetComponent<Button>();
+        if (toWin < 0)
         {
             isWon = true;
         } else {
-
             if (found == 0)
             {
-                b.image.sprite = sprite1;
+                myBtn.image.sprite = sprite1;
                 myBtn2.image.sprite = sprite1;
             }
             else
             {
-
-                b.image.sprite = sprite2;
+                myBtn.image.sprite = sprite2;
                 myBtn2.image.sprite = sprite2;
                
 
             }
+         }
         }
-
     }
 
     public void onClick()
@@ -56,7 +69,7 @@ public class ButtonVisibilityHard: MonoBehaviour
 
         if (found == 0 && isWon == false) { 
             found = 1;
-            toWinHard--;
+        toWin--;
         }
 
 
