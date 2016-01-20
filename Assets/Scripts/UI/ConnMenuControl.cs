@@ -11,6 +11,8 @@ namespace Assets
     public class ConnMenuControl : MonoBehaviour
     {
 
+        public InputField input;
+
         public void StartLocalGame()
         {
             NetworkManager.singleton.StartHost();
@@ -18,7 +20,7 @@ namespace Assets
 
         public void JoinLocalGame()
         {
-            NetworkManager.singleton.networkAddress = "localhost";
+            NetworkManager.singleton.networkAddress = input.text;
             NetworkManager.singleton.StartClient();
         }
             
